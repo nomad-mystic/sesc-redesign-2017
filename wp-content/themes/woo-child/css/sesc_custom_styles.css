@@ -1,0 +1,85 @@
+/**
+* @author Keith Murphy - nomad
+* @summary This will be the starting place for any new styles after 1-14-2017 
+*
+*/
+
+/* sliders styles */
+.sesc-home-slider {
+    /*background: #000000;*/
+}
+.sesc-slider-container {
+    position: relative;
+}
+.sesc-home-slider img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.sesc-slider-excerpt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33%;
+    background: rgba(0,0,0,.50);
+    height: 100%;
+    text-align: center;
+    overflow: scroll;
+}
+.sesc-slider-excerpt h1 {
+    color: #ffffff;
+    font-size: 1em;
+    margin: 10% auto;
+}
+
+.sesc-slider-excerpt h3 {
+    color: #ffffff;
+    font-size: .90em;
+    padding: 0 10%;
+}
+/* Home post styles */
+.sesc-home-posts h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 2% auto;
+}
+
+.sesc-home-posts p {
+    padding: 0 6%;
+    margin: 2% auto;
+}
+
+.sesc-home-posts .featured {
+
+    width: 100%;
+    padding: 0 6%;
+    /*margin: 0 4% 0 0;*/
+}
+.sesc-home-posts img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .sesc-slider-excerpt {
+        overflow: hidden;
+    }
+    .sesc-home-posts .featured {
+        width: 50%;
+        margin: 0 4% 0 0;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { }
