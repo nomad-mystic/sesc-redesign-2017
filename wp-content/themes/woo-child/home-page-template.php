@@ -18,56 +18,87 @@ get_header();
 // $page_template = woo_get_page_template();
 ?>
 
-    <div class="contanier">
-
-            <section>
-                <article>
+<div class="container-fluid sesc-no-padding">
+    <section>
+        <article>
+            <div class="row sesc-no-margin" role="main">
+                <div class="col-xs-12 col-sm-8 sesc-section">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-8">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12" style="border: solid #000 1px;">
-                                  <div class="sesc-home-slider">
-                                      <?php
-                                      /**
-                                      * @param string post_type - Type of post ie post, resources_post
-                                      * @param string category_name  - Type of post ie resources-families-post
-                                      */
-                                      if ( class_exists( 'SESCPosts' ) ) {
-                                           $sesc_posts->SESC_build_home_slider( 'post', 'home-slider-post' );
-                                      }
-                                      ?>
-                                  </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-12" style="border: solid #000 1px;">
-                                  <div class="sesc-home-posts">
-                                      <?php
-                                      /**
-                                      * @param string post_type - Type of post ie post, resources_post
-                                      * @param string category_name  - Type of post ie resources-families-post
-                                      */
-                                      if ( class_exists( 'SESCPosts' ) ) {
-                                           $sesc_posts->SESC_build_home_posts( 'post', 'home-post' );
-                                      }
-                                      ?>
-                                  </div>
-                                </div>
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="sesc-home-slider">
+                            <?php
+                            /**
+                            * @param string $post_type - Type of post ie post, resources_post
+                            * @param string $category_name  - Type of post ie resources-families-post
+                            * @param string $number  - Number of posts
+                            */
+                            if ( class_exists( 'SESCPosts' ) ) {
+                               $sesc_posts->sesc_build_home_slider( 'post', 'home-slider-post' );
+                            }
+                            ?>
                             </div>
                         </div>
 
-                        <aside class="sesc-home-aside">
-                            <!-- <div class="row"> -->
-                                <div class="col-xs-12 col-sm-4" style="border: solid #000 1px; height: 100vh;">
-                                    <p>testing</p>
+                        <div class="col-xs-12 col-sm-12">
+                            <div class="sesc-home-posts">
+                            <?php
+                            /**
+                            * @param string post_type - Type of post ie post, resources_post
+                            * @param string category_name  - Type of post ie resources-families-post
+                            * @param string $number  - Number of posts
+                            */
+                            if ( class_exists( 'SESCPosts' ) ) {
+                               $sesc_posts->sesc_build_home_posts( 'post', 'home-post' );
+                            }
+                            ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sesc-home-aside" role="complementary">
+                    <!-- <div class="row"> -->
+                        <div class="col-xs-12 col-sm-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                <?php
+                                /**
+                                * @param string post_type - Type of post ie post, resources_post
+                                * @param string category_name  - Type of post ie resources-families-post
+                                * @param string $number  - Number of posts
+                                */
+                                if ( class_exists( 'SESCPosts' ) ) {
+                                   $sesc_posts->sesc_build_home_page_news_aside( 'post', 'news-post', '4');
+                                }
+                                ?>
                                 </div>
-                            <!-- </div> -->
-                        </aside>
-                    </div><!--end row-->
-                </article>
-            </section>
-
-
-    </div><!--end contanier-->
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </aside>
+            </div><!--end row-->
+        </article>
+    </section>
+    <section>
+        <article class="sesc-call-to-action-footer" role="menu" aria-label="Secondary">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 sesc-footer-teachers">
+                    <a href="#" role="button">Teachers</a>
+                </div>
+                <div class="col-sm-12 col-md-3 sesc-footer-admin">
+                    <a href="#" role="button">Administrators</a>
+                </div>
+                <div class="col-sm-12 col-md-3 sesc-footer-families">
+                    <a href="#" role="button">Families</a>
+                </div>
+                    <div class="col-sm-12 col-md-3 sesc-footer-partners">
+                        <a href="#" role="button">Partners</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</div><!--end contanier-->
 
 
 

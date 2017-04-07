@@ -1,0 +1,201 @@
+
+/* General */
+.sesc-section p {
+    text-align: center;
+}
+/*helpers*/
+.sesc-no-margin {
+    margin: 0;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.sesc-no-padding {
+    padding: 0;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    max-width: 1220px;
+}
+/* overrides */
+#inner-wrapper {
+    padding: 0 0;
+
+    .nav-toggle {
+        display: none;
+    }
+    #header {
+        padding-top: 80px;
+    }
+    .main-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+/* sliders styles */
+.sesc-home-slider {
+    display: none;
+}
+.sesc-slider-container {
+    position: relative;
+}
+.sesc-home-slider img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.sesc-slider-excerpt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    background: rgba(0,0,0,.50);
+    height: 100%;
+    text-align: center;
+    /*overflow: scroll;*/
+}
+.sesc-slider-excerpt h1 {
+    color: #ffffff;
+    font-size: 1em;
+    margin: 10% auto;
+    text-align: center;
+    margin: 2% auto;
+}
+
+.sesc-home-post-container {
+    text-align: center;
+    h2 {
+        font-size: 2em;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+}
+.sesc-home-posts p {
+    padding: 0 6%;
+    margin: 2% auto;
+}
+
+.sesc-home-posts .featured {
+
+    width: 100%;
+    padding: 0 6%;
+    /*margin: 0 4% 0 0;*/
+}
+.sesc-home-posts img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.sesc-call-to-action-footer {
+    text-align: center;
+    a:link {
+        color: #ffffff;
+        display: block;
+        padding: 1.5em;
+    }
+    .sesc-footer-teachers {
+        background: #f8960b;
+        // text-align: center;
+        color: #ffffff;
+        font-size: 1.5em;
+    }
+    .sesc-footer-admin {
+        background: #538ed7;
+        // text-align: center;
+        color: #ffffff;
+        font-size: 1.5em;
+    }
+    .sesc-footer-families {
+        background: #3366ff;
+        // text-align: center;
+        color: #ffffff;
+        font-size: 1.5em;
+    }
+    .sesc-footer-partners {
+        background: #1fc655;
+        // text-align: center;
+        color: #ffffff;
+        font-size: 1.5em;
+    }
+}
+section#footer-widgets {
+    border-top: none;
+}
+
+/* From ARIA */
+// ul.main-menu {
+//   li.menu-item-has-children {
+//     ul.dropdown-menu {
+//       position: absolute;
+//       left: -9999px;
+//     }
+//   }
+//
+//   li.menu-item-has-children:hover,
+//   li.menu-item-has-children[aria-expanded="true"] {
+//     ul.dropdown-menu {
+//       left: 0;
+//       top: 100%;
+//     }
+//   }
+// }
+
+
+
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    .sesc-slider-excerpt {
+        overflow: hidden;
+    }
+    .sesc-home-posts .featured {
+        width: 50%;
+        margin: 0 4% 0 0;
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+
+    // for the news real
+    .sesc-home-news-post-container h1 {
+        color: #2091cd;
+        line-height: 1em;
+        font-size: 2em;
+        margin: .5em auto;
+    }
+
+    .sesc-call-to-action-footer {
+        a {
+            color: #ffffff;
+            display: block;
+            padding: 2em;
+        }
+        .sesc-footer-teachers {
+            border-bottom-left-radius: 1.5em;
+        }
+        .sesc-footer-admin {
+        }
+        .sesc-footer-families {
+        }
+        .sesc-footer-partners {
+            border-bottom-right-radius: 1.5em;
+        }
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+// @media (min-width: @screen-lg-min) { }

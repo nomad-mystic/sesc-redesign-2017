@@ -1,0 +1,19 @@
+{
+  "name": "sesc",
+  "version": "1.0.0",
+  "description": "This is the development files for SESC redesign 3_27_2017",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "scss": "^0.2.4"
+  },
+  "devDependencies": {
+    "gulp-sass": "^3.1.0",
+    "gulp-scss-lint": "^0.4.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Keith Murphy (Nomad Mystic)",
+  "license": "ISC"
+}

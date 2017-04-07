@@ -7,7 +7,11 @@
  * @package WooFramework
  * @subpackage Template
  */
-?><!DOCTYPE html>
+
+require_once(__DIR__ . '/templates/navigation.php');
+
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
@@ -44,20 +48,20 @@
 	<?php woo_header_before(); ?>
 
 	<header id="header" class="col-full">
-		<div id="nomadHeader">
+		<div id="nomadHeader" role="banner">
 			<div class="floatLeft headerLogo">
 				<img src="http://specialeducationsupportcenter.org/wp-content/uploads/2015/10/takeOneBluePeople_10_5_20151.png" alt="Logo For Special Education Support Center Header area">
 			</div>
 
 			<div class="floatLeft headerh1">
 				<h1>Special Education Support Center</h1>
-				<h3>A Washington State Needs Project funded by OSPI in Partnership with the WEA</h3>
+				<!-- <h3>A Washington State Needs Project funded by OSPI in Partnership with the WEA</h3> -->
 			</div>
 			<div class="floatLeft headerSocialMediaLogin">
 				<ul>
-				    <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span></a></li>
-				    <li><a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon"><span class="fa fa-facebook-official"></span></a></li>
-				    <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span></a></li>
+				    <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span>Twitter Link</a></li>
+				    <li><a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon"><span class="fa fa-facebook-official">Facebook Link</span></a></li>
+				    <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span>Pinterest Link</a></li>
 
 				</ul>
 				<div class="pagesButton">
@@ -67,4 +71,17 @@
 			</div>
 		</div>
 	</header>
-	<?php woo_header_after(); ?>
+
+	<?php
+
+		if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
+
+			if ( class_exists('SESCNavigation' ) ) {
+				$navigation = new SESCNavigation;
+				$navigation->sesc_build_navigation_html();
+			}
+		} else {
+			woo_header_after();
+		}
+
+	?>
