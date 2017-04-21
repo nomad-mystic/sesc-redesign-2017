@@ -1,4 +1,15 @@
 
+
+/*
+* @summary style variables
+*/
+$sesc_orange:  #f8960b;
+$sesc_blue: #2091cd;
+$sesc_dark_blue: #245682;
+body {
+    background: #ffffff !important;
+}
+
 /* General */
 .sesc-section p {
     text-align: center;
@@ -17,118 +28,258 @@
     padding-left: 0;
     padding-bottom: 0;
     padding-top: 0;
-    max-width: 1220px;
+    max-width: 1600px;
+}
+.screen-reader-text {
+  /* Reusable, toolbox kind of class */
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 /* overrides */
-#inner-wrapper {
-    padding: 0 0;
 
-    .nav-toggle {
-        display: none;
-    }
-    #header {
-        padding-top: 80px;
-    }
-    .main-nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-}
-/* sliders styles */
-.sesc-home-slider {
-    display: none;
-}
-.sesc-slider-container {
-    position: relative;
-}
-.sesc-home-slider img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-.sesc-slider-excerpt {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    background: rgba(0,0,0,.50);
-    height: 100%;
-    text-align: center;
-    /*overflow: scroll;*/
-}
-.sesc-slider-excerpt h1 {
-    color: #ffffff;
-    font-size: 1em;
-    margin: 10% auto;
-    text-align: center;
-    margin: 2% auto;
-}
+#wrapper {
+    max-width: 1220px !important;
 
-.sesc-home-post-container {
-    text-align: center;
-    h2 {
-        font-size: 2em;
-    }
-    h3 {
-        font-size: 1.5em;
-    }
-}
-.sesc-home-posts p {
-    padding: 0 6%;
-    margin: 2% auto;
-}
+    #inner-wrapper {
+        text-align: center;
+        padding: 0 0;
+        img {
+            margin: 0 auto;
+        }
+        .nav-toggle {
+            display: none;
+        }
+        #header {
+            padding-top: 80px;
+        }
+        #header .headerSocialMediaLogin > ul li a {
 
-.sesc-home-posts .featured {
+        }
+        .main-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: $sesc_blue;
+            text-align: center;
 
-    width: 100%;
-    padding: 0 6%;
-    /*margin: 0 4% 0 0;*/
-}
-.sesc-home-posts img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
+            .icon-bar {
+                background-color: #ffffff !important;
+            }
+            .acitve {
+                > a {
+                    background-color: $sesc_dark_blue !important;
+                }
+            }
+            .menu-item {
+                a {
+                    color: #ffffff;
+                    text-align: center;
+                }
+            }
+            .menu-item + .active {
+                background: $sesc_dark_blue !important;
+            }
 
-.sesc-call-to-action-footer {
-    text-align: center;
-    a:link {
-        color: #ffffff;
-        display: block;
-        padding: 1.5em;
-    }
-    .sesc-footer-teachers {
-        background: #f8960b;
-        // text-align: center;
-        color: #ffffff;
-        font-size: 1.5em;
-    }
-    .sesc-footer-admin {
-        background: #538ed7;
-        // text-align: center;
-        color: #ffffff;
-        font-size: 1.5em;
-    }
-    .sesc-footer-families {
-        background: #3366ff;
-        // text-align: center;
-        color: #ffffff;
-        font-size: 1.5em;
-    }
-    .sesc-footer-partners {
-        background: #1fc655;
-        // text-align: center;
-        color: #ffffff;
-        font-size: 1.5em;
-    }
-}
-section#footer-widgets {
-    border-top: none;
-}
+        }
+        // Remove defaults
+        .navbar-default {
+            z-index: 100;
+            border-color: transparent;
+            li {
+                &:hover {
+                    background: $sesc_dark_blue;
+                }
+            }
+            .navbar-nav {
+                margin: 10% auto;
+            }
+            .navbar-toggle {
+                border-color: transparent;
+                &:hover {
+                    background-color: $sesc_dark_blue !important;
+                }
+
+            }
+        }
+        .navbar-default .navbar-collapse {
+
+        }
+
+        /* sliders styles */
+        .sesc-home-slider {
+            display: none;
+        }
+        .sesc-slider-container {
+            position: relative;
+
+            .container {
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                border: 1px solid gray;
+            }
+            .image-slider-wrapper {
+                overflow: hidden;
+            }
+            #image_slider {
+                position: relative;
+                height: 400px;
+                float:left;
+                padding:0;
+            }
+            #image_slider li {
+                max-width: 100%;
+                float:left;
+                list-style: none;
+            }
+        }
+
+        // .sesc-home-slider img {
+        //     max-width: 100%;
+        //     height: auto;
+        //     display: block;
+        //     margin: 0 auto;
+        // }
+        .sesc-slider-excerpt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            background: rgba(0,0,0,.50);
+            height: 100%;
+            text-align: center;
+            /*overflow: scroll;*/
+
+            h1 {
+                color: #ffffff;
+                font-size: 1.5em;
+                margin: 10% auto;
+                text-align: center;
+                margin: 2% auto;
+                padding: 1em;
+                line-height: 1.5em;
+            }
+        }
+
+        .sesc-home-post-container {
+            text-align: center;
+            margin: 20px 0;
+            h2 {
+                font-size: 2em;
+                padding: 0 .75em;
+                margin: .5em auto;
+            }
+            h3 {
+                font-size: 1.5em;
+                padding: 0 .75em;
+            }
+            img {
+                margin: .5em auto;
+            }
+            .sesc-home-posts p {
+                padding: 0 6%;
+                margin: 2% auto;
+            }
+
+            .sesc-home-posts .featured {
+
+                width: 100%;
+                padding: 0 6%;
+                /*margin: 0 4% 0 0;*/
+            }
+            .sesc-home-posts img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin: 20px auto;
+            }
+        }
+
+
+        // for the aside
+        .sesc-home-aside {
+            .sesc-home-news-post-container  {
+                text-align: left;
+                padding: 1em;
+                margin: 1em 0;
+
+                h1 {
+                    color: $sesc_blue;
+                    line-height: 1em;
+                    font-size: 1em;
+                    margin: .5em auto;
+                }
+                .news-item {
+                    // padding: 2em;
+                }
+            }
+            .home-subscribe-button {
+                font-size: 1.5em;
+                margin: 10% 0;
+                background: $sesc_orange;
+                border-radius: 5px;
+                a {
+                    color: #ffffff;
+                    padding: 1em;
+                    display: block;
+                }
+            }
+
+            .sesc-home-calendar-container {
+                margin: 20px auto;
+            }
+        }
+
+
+
+        .sesc-call-to-action-footer {
+            text-align: center;
+            a:link {
+                color: #ffffff;
+                display: block;
+                padding: 1.5em;
+            }
+            a:visited {
+                color: #ffffff;
+            }
+            a:hover {
+                color: #ffffff;
+            }
+            .sesc-footer-teachers {
+                background: #f8960b;
+                // text-align: center;
+                color: #ffffff;
+                font-size: 1.5em;
+            }
+            .sesc-footer-admin {
+                background: #538ed7;
+                // text-align: center;
+                color: #ffffff;
+                font-size: 1.5em;
+            }
+            .sesc-footer-families {
+                background: #3366ff;
+                // text-align: center;
+                color: #ffffff;
+                font-size: 1.5em;
+            }
+            .sesc-footer-partners {
+                background: #1fc655;
+                // text-align: center;
+                color: #ffffff;
+                font-size: 1.5em;
+            }
+        }
+        section#footer-widgets {
+            border-top: none;
+        }
+        .gform_title {
+            display: none;
+        }
+    } // end inner-wrapper
+} // end wrapper
 
 /* From ARIA */
 // ul.main-menu {
@@ -157,12 +308,26 @@ section#footer-widgets {
 
 /* Small devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-    .sesc-slider-excerpt {
-        overflow: hidden;
-    }
-    .sesc-home-posts .featured {
-        width: 50%;
-        margin: 0 4% 0 0;
+    #wrapper {
+        .sesc-slider-excerpt {
+            overflow: hidden;
+        }
+        .sesc-home-posts .featured {
+            width: 50%;
+            margin: 0 4% 0 0;
+        }
+
+        #inner-wrapper {
+            .main-nav {
+                position: relative;
+            }
+            .sesc-home-slider {
+                display: block;
+            }
+            #header {
+                padding-top: 20px;
+            }
+        }
     }
 
 }
@@ -170,29 +335,24 @@ section#footer-widgets {
 /* Medium devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
 
-    // for the news real
-    .sesc-home-news-post-container h1 {
-        color: #2091cd;
-        line-height: 1em;
-        font-size: 2em;
-        margin: .5em auto;
-    }
-
-    .sesc-call-to-action-footer {
-        a {
-            color: #ffffff;
-            display: block;
-            padding: 2em;
-        }
-        .sesc-footer-teachers {
-            border-bottom-left-radius: 1.5em;
-        }
-        .sesc-footer-admin {
-        }
-        .sesc-footer-families {
-        }
-        .sesc-footer-partners {
-            border-bottom-right-radius: 1.5em;
+    #wrapper {
+        // for the news real
+        .sesc-call-to-action-footer {
+            a {
+                color: #ffffff;
+                display: block;
+                padding: 2em;
+            }
+            .sesc-footer-teachers {
+                border-bottom-left-radius: 1.5em;
+            }
+            .sesc-footer-admin {
+            }
+            .sesc-footer-families {
+            }
+            .sesc-footer-partners {
+                border-bottom-right-radius: 1.5em;
+            }
         }
     }
 }

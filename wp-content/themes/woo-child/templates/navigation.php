@@ -16,12 +16,12 @@ class SESCNavigation {
         // echo 'Testing echo';
         // $aria_label = _e( "Main Menu", "textdomain" );
 
-        echo '<nav class="navbar navbar-default main-nav" role="navigation" aria-label="">';
+        echo '<nav  class="navbar navbar-default main-nav" role="navigation" aria-label="">';
             ?>
               <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sesc_nav_toggle" aria-expanded="false">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main_nav_container" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

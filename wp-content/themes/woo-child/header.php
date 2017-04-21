@@ -59,21 +59,43 @@ require_once(__DIR__ . '/templates/navigation.php');
 			</div>
 			<div class="floatLeft headerSocialMediaLogin">
 				<ul>
-				    <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span>Twitter Link</a></li>
-				    <li><a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon"><span class="fa fa-facebook-official">Facebook Link</span></a></li>
-				    <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span>Pinterest Link</a></li>
+				    <!-- <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span>Twitter Link</a></li> -->
+					<li>
+						<a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon">
+	  						<span aria-hidden="true" class="fa fa-twitter-square"></span>
+	  						<span class="screen-reader-text">Link to SESC Twitter Acount.</span>
+						</a>
+				    </li>
+
+					<!-- <li><a  class="facebookIcon"><span class="fa fa-facebook-official">Facebook Link</span></a></li> -->
+					<li>
+						<a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon">
+	  						<span aria-hidden="true" class="fa fa-facebook-official"></span>
+	  						<span class="screen-reader-text">Link to SESC Facebook Acount.</span>
+						</a>
+				    </li>
+
+					<!-- <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span>Pinterest Link</a></li> -->
+				    <li>
+						<a href="https://pinterest.com/spedcenter" target="_blank" class="pinterestIcon" >
+	  						<span aria-hidden="true" class="fa fa-pinterest-square"></span>
+	  						<span class="screen-reader-text">Link to SESC pinterest Acount.</span>
+						</a>
+				    </li>
 
 				</ul>
-				<div class="pagesButton">
+				<!-- <div class="pagesButton">
 					<a href="http://specialeducationsupportcenter.org/wp-login.php">Log-in</a>
-				</div>
+				</div> -->
 				<?php the_widget('WP_Widget_Search'); ?>
 			</div>
 		</div>
 	</header>
 
 	<?php
-
+		/**
+		* @todo Test to see if I can use this Nav for all pages
+		*/
 		if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
 
 			if ( class_exists('SESCNavigation' ) ) {
