@@ -68,12 +68,42 @@ get_header();
                                 * @param string $number  - Number of posts
                                 */
                                 if ( class_exists( 'SESCPosts' ) ) {
-                                   $sesc_posts->sesc_build_home_page_news_aside( 'post', 'news-post', '4');
+                                   $sesc_posts->sesc_build_home_news_widget( 'post', 'news-post', '4');
+                                }
+                                ?>
+                                </div>
+                                <div class="col-xs-12">
+                                <?php
+                                /**
+                                * @param string post_type - Type of post ie post, resources_post
+                                * @param string category_name  - Type of post ie resources-families-post
+                                * @param string $number  - Number of posts
+                                */
+                                if ( class_exists( 'SESCPosts' ) ) {
+                                   $sesc_posts->sesc_build_home_aside_google_calendar();
                                 }
                                 ?>
                                 </div>
                             </div>
                         </div>
+                        <!-- <div class="col-xs-12 col-sm-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                <?php
+                                /**
+                                * @param string post_type - Type of post ie post, resources_post
+                                * @param string category_name  - Type of post ie resources-families-post
+                                * @param string $number  - Number of posts
+                                */
+                                if ( class_exists( 'SESCPosts' ) ) {
+                                   $sesc_posts->sesc_build_home_news_widget( 'post', 'news-post', '4');
+                                }
+                                ?>
+                                </div>
+
+                            </div>
+                        </div> -->
+
                     <!-- </div> -->
                 </aside>
             </div><!--end row-->

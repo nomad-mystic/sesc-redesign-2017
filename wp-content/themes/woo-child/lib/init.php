@@ -21,7 +21,7 @@ class SESC_init_functions {
             'show_ui' => true,
             'publicly_queryable' => true,
             'taxonomies' => array('category', 'post_tag'),
-            'rewrite'            => array( 'slug' => 'news' )
+            'rewrite' => array( 'slug' => 'news' )
         ];
         register_post_type('news', $args);
     }
@@ -70,6 +70,10 @@ class SESC_init_functions {
 
       	register_post_type( 'resources_post', $args );
     }
+
+    /**
+    * @author
+    */
 
 
 }
