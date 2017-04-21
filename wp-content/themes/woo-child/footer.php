@@ -9,21 +9,33 @@
  * @subpackage Template
  */
 
- global $woo_options;
+global $woo_options;
 
- woo_footer_top();
- 	woo_footer_before();
+
+require_once(__DIR__ . '/lib/sesc_menus.php');
+
+
+woo_footer_top();
+woo_footer_before();
 
 ?>
 	<footer id="footer" class='col-full "' . <?php do_action( 'sesc_active_page', $post ); ?> . ''>
 
         <?php
-            function sesc_footer_classes( $post ) {
-                if ( is_home() ) {
-                    echo 'testing';
-                }
+        function sesc_footer_classes( $post ) {
+            if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
+                echo 'testing';
             }
-            add_action( 'sesc_active_page', 'sesc_footer_classes');
+        }
+        add_action( 'sesc_active_page', 'sesc_footer_classes');
+
+        if ( is_home() || get_home_path() === '/var/www/html/sesc/') {
+
+            if ( class_exists( 'SESC_menus' ) ) {
+                $sesc_menus = new SESC_menus();
+                $sesc_menus->sesc_build_custom_footer_menu();
+            }
+        }
         ?>
 		<?php woo_footer_inside(); ?>
 

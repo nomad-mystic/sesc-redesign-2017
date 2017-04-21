@@ -166,7 +166,7 @@ class SESCPosts {
 
         echo '</div>'; // row
         echo     '<div class="home-subscribe-button">';
-        echo        '<a href="' . $site_url . '" role="button">Subscribe to Newsletter</a>';
+        echo        '<a href="' . $site_url . '/subscribe-to-newsletter/" role="button">Subscribe to Newsletter</a>';
         echo     '</div>';
 
     }

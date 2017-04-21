@@ -8,16 +8,22 @@
  * @subpackage Template
  */
 
-require_once(__DIR__ . '/templates/navigation.php');
+require_once(__DIR__ . '/lib/sesc_navigation.php');
 
 ?>
+
 <!DOCTYPE html>
+
 <html <?php language_attributes(); ?>>
 <head>
+
 <meta charset="<?php echo esc_attr( get_bloginfo( 'charset' ) ); ?>" />
+
 <title><?php woo_title(); ?></title>
 <?php woo_meta(); ?>
+
 <link rel="pingback" href="<?php echo esc_url( get_bloginfo( 'pingback_url' ) ); ?>" />
+
 <?php wp_head(); ?>
 <?php woo_head(); ?>
 	<script>
@@ -40,7 +46,9 @@ require_once(__DIR__ . '/templates/navigation.php');
 		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
+
 <?php woo_top(); ?>
+
 <div id="wrapper">
 
 	<div id="inner-wrapper">
@@ -98,8 +106,8 @@ require_once(__DIR__ . '/templates/navigation.php');
 		*/
 		if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
 
-			if ( class_exists('SESCNavigation' ) ) {
-				$navigation = new SESCNavigation;
+			if ( class_exists('SESC_menus' ) ) {
+				$navigation = new SESC_menus;
 				$navigation->sesc_build_navigation_html();
 			}
 		} else {

@@ -65,7 +65,7 @@ body {
       #wrapper #inner-wrapper .navbar-default li:hover {
         background: #245682; }
       #wrapper #inner-wrapper .navbar-default .navbar-nav {
-        margin: 10% auto; }
+        margin: 0 auto; }
       #wrapper #inner-wrapper .navbar-default .navbar-toggle {
         border-color: transparent; }
         #wrapper #inner-wrapper .navbar-default .navbar-toggle:hover {
@@ -147,7 +147,7 @@ body {
       border-radius: 5px; }
       #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button a {
         color: #ffffff;
-        padding: 1em;
+        padding: .75em;
         display: block; }
     #wrapper #inner-wrapper .sesc-home-aside .sesc-home-calendar-container {
       margin: 20px auto; }
@@ -181,6 +181,8 @@ body {
       border-top: none; }
     #wrapper #inner-wrapper .gform_title {
       display: none; }
+  #wrapper #footer {
+    border-top: none; }
 
 /* From ARIA */
 /* Extra small devices (phones, less than 768px) */

@@ -92,8 +92,9 @@ body {
                     background: $sesc_dark_blue;
                 }
             }
+
             .navbar-nav {
-                margin: 10% auto;
+                margin: 0 auto;
             }
             .navbar-toggle {
                 border-color: transparent;
@@ -222,9 +223,10 @@ body {
                 border-radius: 5px;
                 a {
                     color: #ffffff;
-                    padding: 1em;
+                    padding: .75em;
                     display: block;
                 }
+
             }
 
             .sesc-home-calendar-container {
@@ -279,6 +281,9 @@ body {
             display: none;
         }
     } // end inner-wrapper
+    #footer {
+        border-top: none;
+    }
 } // end wrapper
 
 /* From ARIA */
