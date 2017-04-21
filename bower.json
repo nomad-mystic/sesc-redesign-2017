@@ -1,0 +1,21 @@
+{
+  "name": "sesc",
+  "description": "This is the development files for SESC redesign 3_27_2017",
+  "main": "index.html",
+  "authors": [
+    "Keith Murphy (Nomad Mystic)"
+  ],
+  "license": "ISC",
+  "homepage": "http://specialeducationsupportnetwork.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wp-bootstrap-navwalker": "^2.0.5"
+  }
+}
