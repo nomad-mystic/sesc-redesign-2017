@@ -27,6 +27,7 @@ gulp.task('sass', () => {
             browsers: ['last 2 versions'],
             cascade: false
         }))
+        
         .pipe(concat('sesc_custom_styles.css'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./wp-content/themes/woo-child/build/css'))
