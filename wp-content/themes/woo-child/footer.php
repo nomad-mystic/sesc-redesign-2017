@@ -19,17 +19,18 @@ woo_footer_top();
 woo_footer_before();
 
 ?>
-	<footer id="footer" class='col-full "' . <?php do_action( 'sesc_active_page', $post ); ?> . ''>
+	<footer id="footer" class="col-full">
 
         <?php
-        function sesc_footer_classes( $post ) {
-            if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
-                echo 'testing';
-            }
-        }
-        add_action( 'sesc_active_page', 'sesc_footer_classes');
-
-        if ( is_home() || get_home_path() === '/var/www/html/sesc/') {
+        // function sesc_footer_classes( $post ) {
+        //     if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
+        //         echo 'testing';
+        //     }
+        // }
+        // add_action( 'sesc_active_page', 'sesc_footer_classes');
+		// var_dump(is_home());
+		// die(is_home());
+        if ( get_permalink() === 'http://localhost/sesc/' ) {
 
             if ( class_exists( 'SESC_menus' ) ) {
                 $sesc_menus = new SESC_menus();

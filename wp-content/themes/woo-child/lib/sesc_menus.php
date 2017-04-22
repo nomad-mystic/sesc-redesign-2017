@@ -18,7 +18,7 @@ class SESC_menus extends Walker_Nav_Menu {
         * @author Keith Murphy - nomad - nomadmystics@gmail.com
         * @summary Builds the footers custom nav - found in ./lib/sesc_navigation.php
         */
-        add_action( 'after_setup_theme', [ &$this, 'sesc_register_custom_footer_nav' ] );
+        add_action( 'after_setup_theme', [ &$this, 'sesc_register_custom_footer_nav' ], 10 );
         // apply_filters( 'walker_nav_menu_start_el', [ $this, 'menus_rewrite'] );
 
     }
@@ -145,13 +145,42 @@ class SESC_menus extends Walker_Nav_Menu {
     */
     public function sesc_build_custom_footer_menu() {
 
-        $nav_class = 'sesc-footer-nav';
-        $menu = 'footer-site-map';
-        $theme_location = 'footer-site-map';
-        $container_id = 'sesc-footer-nav';
-        $data_target = '#sesc-footer-nav';
+        // $nav_class = 'sesc-footer-nav';
 
-        $this->sesc_build_navigation_html( $nav_class, $menu, $theme_location, $container_id, $data_target );
+        // $data_target = '#sesc-footer-nav';
+        //
 
+        // $this->sesc_build_navigation_html( $nav_class, $menu, $theme_location, $container_id, $data_target );
+        ?>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <nav role="navigation">
+                        <?php
+                            $menu = 'footer-site-map';
+                            $theme_location = 'footer-site-map';
+                            $container_id = 'sesc-footer-nav';
+                            // die('testing');
+                            // if ( has_nav_menu( 'footer-site-map' ) ) {
+                              wp_nav_menu([
+                                    'menu'              => $menu,
+                                    'theme_location'    => $theme_location,
+                                    // 'depth'             => 2,
+                                    // 'container'         => 'div',
+                                    // 'container_class'   => false,
+                                    'container_id'      => $container_id,
+                                    // 'menu_class'        => 'nav navbar-nav',
+                                    'walker'         => new Aria_Walker_Nav_Menu(),
+                                    'items_wrap'     => '<ul id="%1$s" class="%2$s" role="menubar">%3$s</ul>',
+                                ]);
+                            // }
+                        ?>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <?php
     }
 } // end class

@@ -8,7 +8,7 @@
  * @subpackage Template
  */
 
-require_once(__DIR__ . '/lib/sesc_navigation.php');
+// require_once(__DIR__ . '/lib/sesc_navigation.php');
 
 ?>
 

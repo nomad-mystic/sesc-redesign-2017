@@ -124,7 +124,7 @@ class SESCPosts {
 
     /**
     * @author Keith Murphy - nomad - nomadmystics@gmail.com
-    * @summary Builds HTML for post with category 'news-post'
+    * @summary Builds HTML for post with category 'home-news-widget'
     * @param string post_type 'post' - Type of post ie post, resources_post
     * @param string category_name 'home-slider-post'  - Type of post ie resources-families-post
     * @param string $number  - Number of posts
