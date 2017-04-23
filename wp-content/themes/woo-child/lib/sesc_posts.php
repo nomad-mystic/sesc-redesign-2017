@@ -73,52 +73,52 @@ class SESCPosts {
     * @param string $number  - Number of posts
     */
     public function sesc_build_home_slider( $post_type, $category_name, $number = '4' ) {
+
         // The Query
-        $args = $this->sesc_posts_factory( $post_type, $category_name, $number );
-        $query = new WP_Query( $args );
-        $permalink = get_the_permalink();
+        $sesc_slider_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
+        $sesc_slider_query = new WP_Query( $sesc_slider_args );
 
-        echo '<div class="entry-content row">';
-        echo '<div class="col-s-12 sesc-slider-container">';
+        ?>
+        <div class="entry-content row" role="presentation">
+            <div class="col-s-12 sesc-slider-container">
+                <div id="sesc-home-slider" class="carousel slide" data-ride="carousel" data-interval="100000">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#sesc-home-slider" data-slide-to="0" class="active"></li>
+                        <li data-target="#sesc-home-slider" data-slide-to="1"></li>
+                        <li data-target="#sesc-home-slider" data-slide-to="2"></li>
+                    </ol>
 
-        if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                    <?php
+                    if ( $sesc_slider_query->have_posts() ) {
+            			while ( $sesc_slider_query->have_posts() ) {
+            				$sesc_slider_query->the_post();
 
+                            echo '<div class="sesc-slide-item item">';
+                            echo '  <a href="' . get_permalink() . '" role="presentation">';
+                            echo        get_the_post_thumbnail( $sesc_slider_query->get( 'ID' ) );
+                            echo '  </a>';
+                            echo '  <div class="sesc-slider-excerpt carousel-caption">';
+                            echo '      <h1>' . get_the_title( $sesc_slider_query->get( 'ID' ) ) . '</h1>';
+                            echo '  </div>';
+                            echo '</div>';
 
-                // echo '<figure>';
-                // echo    '<a href="' . $permalink . '" role="presentation">';
-                // echo        get_the_post_thumbnail( $query->get( 'ID' ) );
-                // echo    '</a>';
-                // echo '</figure>';
-                // echo '<div class="sesc-slider-excerpt">';
-                // echo '  <h1>' . get_the_title( $query->get( 'ID' ) ) . '</h1>';
-                // echo '</div>';
-                // echo '</div>';
+                            // echo '</div>';
 
-			}
-		} else {
-            echo '<div class="entry-content">';
-            echo '  <h1>Sorry! No Posts Found.</h1>';
-            echo '</div>';
-		}
-
-        // echo '</div>';
-
-
-        echo    '<div class="container">';
-        echo    '   <div class="image-slider-wrapper">';
-        echo    '       <ul id="image_slider">';
-        echo    '           <li><img src="http://localhost/sesc/wp-content/uploads/2017/01/slider_image_2-1.jpg"></li>';
-        echo    '           <li><img src="http://localhost/sesc/wp-content/uploads/2017/01/slider_image_3-1.jpg"></li>';
-        echo    '           <li><img src="http://localhost/sesc/wp-content/uploads/2017/01/slider_image_2-1.jpg"></li>';
-        echo    '           <li><img src="http://localhost/sesc/wp-content/uploads/2017/01/slider_image_3-1.jpg"></li>';
-        echo    '       </ul>';
-        echo    '   </div>';
-        echo    '</div>';
-
-        echo    '</div>';
-        echo    '</div>';
+            			}
+            		} else {
+                        echo '<div class="entry-content">';
+                        echo '  <h1>Sorry! No Posts Found.</h1>';
+                        echo '</div>';
+            		}
+                    ?>
+                    </div><!-- end carousel-inner-->
+                </div><!-- end carousel-->
+            </div><!--end sesc-slider-container-->
+        </div><!--end row-->
+        <?php
 
     }
 

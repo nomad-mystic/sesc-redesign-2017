@@ -67,8 +67,6 @@ Thumbs.db
 *.log
 *.sql
 *.sqlite
-
-# ignore compiled files
 *.com
 *.class
 *.dll
@@ -104,7 +102,7 @@ node_modules/
 !package.json
 !gulpfile.babel.js
 !bower.json
-!./.babelrc
+!.babelrc
 
 
 /bower_components/

@@ -66,38 +66,44 @@
 				<!-- <h3>A Washington State Needs Project funded by OSPI in Partnership with the WEA</h3> -->
 			</div>
 			<div class="floatLeft headerSocialMediaLogin">
-				<ul>
-				    <!-- <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span>Twitter Link</a></li> -->
-					<li>
-						<a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon">
-	  						<span aria-hidden="true" class="fa fa-twitter-square"></span>
-	  						<span class="screen-reader-text">Link to SESC Twitter Acount.</span>
-						</a>
-				    </li>
+				<div>
+					<ul>
+					    <!-- <li><a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon"><span class="fa fa-twitter-square"></span>Twitter Link</a></li> -->
+						<li>
+							<a href="https://twitter.com/wa_sped_center" target="_blank" class="twitterIcon">
+		  						<span aria-hidden="true" class="fa fa-twitter-square"></span>
+		  						<span class="screen-reader-text">Link to SESC Twitter Acount.</span>
+							</a>
+					    </li>
 
-					<!-- <li><a  class="facebookIcon"><span class="fa fa-facebook-official">Facebook Link</span></a></li> -->
-					<li>
-						<a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon">
-	  						<span aria-hidden="true" class="fa fa-facebook-official"></span>
-	  						<span class="screen-reader-text">Link to SESC Facebook Acount.</span>
-						</a>
-				    </li>
+						<!-- <li><a  class="facebookIcon"><span class="fa fa-facebook-official">Facebook Link</span></a></li> -->
+						<li>
+							<a href="https://www.facebook.com/SpecialEdSupportCenter" target="_blank" class="facebookIcon">
+		  						<span aria-hidden="true" class="fa fa-facebook-official"></span>
+		  						<span class="screen-reader-text">Link to SESC Facebook Acount.</span>
+							</a>
+					    </li>
 
-					<!-- <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span>Pinterest Link</a></li> -->
-				    <li>
-						<a href="https://pinterest.com/spedcenter" target="_blank" class="pinterestIcon" >
-	  						<span aria-hidden="true" class="fa fa-pinterest-square"></span>
-	  						<span class="screen-reader-text">Link to SESC pinterest Acount.</span>
-						</a>
-				    </li>
+						<!-- <li><a href="https://pinterest.com/spedcenter" target="_blank" class="twitterIcon"><span class="fa fa-pinterest-square"></span>Pinterest Link</a></li> -->
+					    <li>
+							<a href="https://pinterest.com/spedcenter" target="_blank" class="pinterestIcon" >
+		  						<span aria-hidden="true" class="fa fa-pinterest-square"></span>
+		  						<span class="screen-reader-text">Link to SESC pinterest Acount.</span>
+							</a>
+					    </li>
 
-				</ul>
+					</ul>
+				</div>
 				<!-- <div class="pagesButton">
 					<a href="http://specialeducationsupportcenter.org/wp-login.php">Log-in</a>
 				</div> -->
-				<?php the_widget('WP_Widget_Search'); ?>
-			</div>
-		</div>
+				<div class="clearBoth"></div>
+
+				<?php the_widget( 'WP_Widget_Search' ); ?>
+
+			</div><!-- end headerSocialMediaLogin-->
+
+		</div><!-- end nomadHeader-->
 	</header>
 
 	<?php
@@ -106,7 +112,7 @@
 		*/
 		if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
 
-			if ( class_exists('SESC_menus' ) ) {
+			if ( class_exists( 'SESC_menus' ) ) {
 				$navigation = new SESC_menus;
 				$navigation->sesc_build_navigation_html();
 			}

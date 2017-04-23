@@ -44,6 +44,13 @@ body {
       display: none; }
     #wrapper #inner-wrapper #header {
       padding-top: 80px; }
+    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul {
+      font-size: 2.5em;
+      margin: -3% 0 0 0; }
+      #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul li {
+        display: inline-block; }
+    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
+      width: 100%; }
     #wrapper #inner-wrapper .main-nav {
       position: absolute;
       top: 0;
@@ -92,23 +99,6 @@ body {
         max-width: 100%;
         float: left;
         list-style: none; }
-    #wrapper #inner-wrapper .sesc-slider-excerpt {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 30%;
-      background: rgba(0, 0, 0, 0.5);
-      height: 100%;
-      text-align: center;
-      /*overflow: scroll;*/ }
-      #wrapper #inner-wrapper .sesc-slider-excerpt h1 {
-        color: #ffffff;
-        font-size: 1.5em;
-        margin: 10% auto;
-        text-align: center;
-        margin: 2% auto;
-        padding: 1em;
-        line-height: 1.5em; }
     #wrapper #inner-wrapper .sesc-home-main-article {
       text-align: center; }
       #wrapper #inner-wrapper .sesc-home-main-article h2 {
@@ -216,6 +206,11 @@ body {
     #wrapper #inner-wrapper header {
       border-right: 3px solid #2091cd;
       border-left: 3px solid #2091cd; }
+    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul {
+      float: right; }
+    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
+      width: 50%;
+      margin: 1% auto; }
     #wrapper #inner-wrapper .navbar {
       border-radius: 0;
       border: none;
@@ -226,18 +221,35 @@ body {
     #wrapper #inner-wrapper .sesc-home-main-article {
       border-right: 3px solid #2091cd;
       border-left: 3px solid #2091cd; }
-    #wrapper #inner-wrapper .sesc-slider-excerpt {
-      overflow: hidden; }
     #wrapper #inner-wrapper .sesc-home-posts .featured {
       width: 50%;
       margin: 0 4% 0 0; }
     #wrapper #inner-wrapper .main-nav {
       position: relative; }
-    #wrapper #inner-wrapper .sesc-home-slider {
-      display: block;
-      margin: 2em 0 0 0; }
     #wrapper #inner-wrapper #header {
       padding-top: 20px; }
+    #wrapper #inner-wrapper .sesc-home-slider {
+      display: block;
+      margin: 1.5em 0 0 0; }
+      #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30%;
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+        text-align: center;
+        overflow: hidden; }
+        #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
+          color: #ffffff;
+          font-size: 1.5em;
+          margin: 10% auto;
+          text-align: center;
+          margin: 2% auto;
+          padding: 1em;
+          line-height: 1.5em; }
+    #wrapper #inner-wrapper .sesc-home-post-parent-col {
+      padding-right: 0; }
     #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
       border-left: 3px solid #2091cd;
       border-bottom: 3px solid #2091cd; }
@@ -257,6 +269,8 @@ body {
   #wrapper #inner-wrapper .sesc-home-posts {
     border: 3px solid #2091cd;
     margin: 1em 0; }
+  #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
+    width: 100%; }
   #wrapper #inner-wrapper .sesc-call-to-action-footer a {
     color: #ffffff;
     display: block;

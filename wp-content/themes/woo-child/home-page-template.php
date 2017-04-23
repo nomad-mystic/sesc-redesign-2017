@@ -40,7 +40,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12">
+                        <div class="col-xs-12 col-sm-12 sesc-home-post-parent-col">
                             <div class="sesc-home-posts">
                             <?php
                             /**
