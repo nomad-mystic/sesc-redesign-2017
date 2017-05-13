@@ -108,8 +108,6 @@ body {
       #wrapper #inner-wrapper .sesc-home-main-article h3 {
         font-size: 1.5em;
         padding: 0 .75em; }
-      #wrapper #inner-wrapper .sesc-home-main-article img {
-        margin: .5em auto; }
       #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts p {
         padding: 0 6%;
         margin: 2% auto; }
@@ -211,6 +209,9 @@ body {
     #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
       width: 50%;
       margin: 1% auto; }
+    #wrapper #inner-wrapper #main_nav_container ul li a {
+      padding: .5em;
+      font-size: .95em; }
     #wrapper #inner-wrapper .navbar {
       border-radius: 0;
       border: none;
@@ -230,7 +231,15 @@ body {
       padding-top: 20px; }
     #wrapper #inner-wrapper .sesc-home-slider {
       display: block;
-      margin: 1.5em 0 0 0; }
+      margin: 2em 0 0 0; }
+      #wrapper #inner-wrapper .sesc-home-slider .carousel-inner {
+        height: 300px; }
+      #wrapper #inner-wrapper .sesc-home-slider img {
+        display: block;
+        display: block; }
+      #wrapper #inner-wrapper .sesc-home-slider .carousel-indicators {
+        left: 15%;
+        bottom: 20%; }
       #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt {
         position: absolute;
         top: 0;
@@ -242,14 +251,16 @@ body {
         overflow: hidden; }
         #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
           color: #ffffff;
-          font-size: 1.5em;
+          font-size: 1.25em;
           margin: 10% auto;
           text-align: center;
           margin: 2% auto;
           padding: 1em;
-          line-height: 1.5em; }
+          line-height: 1.25em; }
     #wrapper #inner-wrapper .sesc-home-post-parent-col {
       padding-right: 0; }
+    #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
+      font-size: 1.25em; }
     #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
       border-left: 3px solid #2091cd;
       border-bottom: 3px solid #2091cd; }
@@ -271,6 +282,17 @@ body {
     margin: 1em 0; }
   #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
     width: 100%; }
+  #wrapper #inner-wrapper #main_nav_container ul li a {
+    padding: .5em 1em; }
+  #wrapper #inner-wrapper .sesc-home-slider img {
+    height: 400px; }
+  #wrapper #inner-wrapper .sesc-home-slider .carousel-indicators {
+    bottom: 5%; }
+  #wrapper #inner-wrapper .sesc-home-slider .carousel-inner {
+    height: 400px; }
+  #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
+    font-size: 1.5em;
+    line-height: 1.25em; }
   #wrapper #inner-wrapper .sesc-call-to-action-footer a {
     color: #ffffff;
     display: block;

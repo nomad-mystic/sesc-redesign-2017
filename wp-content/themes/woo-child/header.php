@@ -58,7 +58,9 @@
 	<header id="header" class="col-full">
 		<div id="nomadHeader" role="banner">
 			<div class="floatLeft headerLogo">
-				<img src="http://specialeducationsupportcenter.org/wp-content/uploads/2015/10/takeOneBluePeople_10_5_20151.png" alt="Logo For Special Education Support Center Header area">
+				<a href="http://specialeducationsupportcenter.org/">
+					<img src="http://specialeducationsupportcenter.org/wp-content/uploads/2015/10/takeOneBluePeople_10_5_20151.png" alt="Logo For Special Education Support Center Header area">
+				</a>
 			</div>
 
 			<div class="floatLeft headerh1">
@@ -110,14 +112,19 @@
 		/**
 		* @todo Test to see if I can use this Nav for all pages
 		*/
-		if ( is_home() || get_home_path() == '/var/www/html/sesc/' ) {
+		if ( get_permalink() == 'http://localhost/sesc/home/' || get_permalink() == 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
 
 			if ( class_exists( 'SESC_menus' ) ) {
+
 				$navigation = new SESC_menus;
 				$navigation->sesc_build_navigation_html();
+
 			}
+
 		} else {
+
 			woo_header_after();
+
 		}
 
 	?>

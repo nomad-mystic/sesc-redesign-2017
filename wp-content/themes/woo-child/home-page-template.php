@@ -71,7 +71,7 @@ get_header();
                                 * @param string $number  - Number of posts
                                 */
                                 if ( class_exists( 'SESCPosts' ) ) {
-                                   $sesc_posts->sesc_build_home_news_widget( 'post', 'home-news-widget', '4');
+                                   $sesc_posts->sesc_build_home_news_widget( 'news', 'home-news-widget', '4');
                                 }
                                 ?>
                                 </div>

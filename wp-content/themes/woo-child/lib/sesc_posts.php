@@ -39,29 +39,36 @@ class SESCPosts {
     */
     public function sesc_build_home_posts( $post_type, $category_name, $number = '-1') {
         // The Query
-        $args = $this->sesc_posts_factory($post_type, $category_name, $number);
-        $query = new WP_Query( $args );
+        $sesc_home_posts_args = $this->sesc_posts_factory($post_type, $category_name, $number);
+        $sesc_home_posts_query = new WP_Query( $sesc_home_posts_args );
 
 		// The Loop
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-				$query->the_post();
+		if ( $sesc_home_posts_query->have_posts() ) {
+			while ( $sesc_home_posts_query->have_posts() ) {
+
+				$sesc_home_posts_query->the_post();
+
 				echo '<div class="entry-content row">';
                 echo    '<div class="col-xs-12 sesc-home-post-container">';
                 // echo        '<h1>' . get_the_title() . '</h1>';
                 echo        '<figure>';
                 echo            '<div class="floatLeft featured">';
-                echo                get_the_post_thumbnail( $query->get( 'ID' ) );
+                echo                get_the_post_thumbnail( $sesc_home_posts_query->get( 'ID' ) );
                 echo            '</div>';
                 echo        '</figure>';
 		  		the_content();
  		  		echo     '</div>';
  		  		echo '</div>';
+
 			}
+            wp_reset_postdata();
+
 		} else {
+
             echo '<div class="entry-content">';
-            echo '<h1>Sorry! No Posts Found.';
+            echo '  <h1>Sorry! No Posts Found.</h1>';
             echo '</div>';
+
 		}
     }
 
@@ -94,6 +101,7 @@ class SESCPosts {
                     <?php
                     if ( $sesc_slider_query->have_posts() ) {
             			while ( $sesc_slider_query->have_posts() ) {
+
             				$sesc_slider_query->the_post();
 
                             echo '<div class="sesc-slide-item item">';
@@ -105,13 +113,14 @@ class SESCPosts {
                             echo '  </div>';
                             echo '</div>';
 
-                            // echo '</div>';
-
             			}
+                        wp_reset_postdata();
             		} else {
+
                         echo '<div class="entry-content">';
                         echo '  <h1>Sorry! No Posts Found.</h1>';
                         echo '</div>';
+
             		}
                     ?>
                     </div><!-- end carousel-inner-->
@@ -131,19 +140,26 @@ class SESCPosts {
     */
     public function sesc_build_home_news_widget( $post_type, $category_name, $number = '-1' ) {
         // The Query
-        $args = $this->sesc_posts_factory( $post_type, $category_name, $number );
-        $query = new WP_Query( $args );
-        // print_r($query);
+        // $sesc_home_news_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
+
+        $sesc_home_news_args = array (
+			'post_type'              => $post_type,
+			// 'category_name'          => $category_name,
+			'order'                  => 'ASC',
+			'orderby'                => 'menu_order title',
+			'posts_per_page'         =>  $number
+		);
+
+        $sesc_home_news_query = new WP_Query( $sesc_home_news_args );
+
         $site_url = get_site_url();
 
         echo '<div class="entry-content row sesc-home-news-post-container">';
 
-		if ( $query->have_posts() ) {
-			while ( $query->have_posts() ) {
-                $truncated_content = '';
-				$query->the_post();
-                // print_r(get_the_content());
-                // $truncated_content = substr( get_the_content(), 0, 30 );
+		if ( $sesc_home_news_query->have_posts() ) {
+			while ( $sesc_home_news_query->have_posts() ) {
+
+				$sesc_home_news_query->the_post();
 
                 echo    '<div class="col-xs-12 news-item">';
                 echo        '<a href="' . get_permalink() . '">';
@@ -151,22 +167,26 @@ class SESCPosts {
                 echo        '</a>';
                 echo    '<p>';
 
-                substr( the_content(), 0, 30 );
+                // substr( the_content(), 0, 30 );
+                the_excerpt();
 
                 echo    '</p>';
  		  		echo     '</div>';
 
 			}
             wp_reset_postdata();
+
 		} else {
+
             echo '<div class="entry-content">';
             echo '  <h1>Sorry! No Posts Found.</h1>';
             echo '</div>';
+
 		}
 
         echo '</div>'; // row
         echo     '<div class="home-subscribe-button">';
-        echo        '<a href="' . $site_url . '/subscribe-to-newsletter/" role="button">Subscribe to Newsletter</a>';
+        echo        '<a href="' . $site_url . '/stay-current/news/" role="button">View Archives</a>';
         echo     '</div>';
 
     }
@@ -178,11 +198,9 @@ class SESCPosts {
     */
     public function sesc_build_home_aside_google_calendar() {
 
-        // echo '<div class="entry-content row">';
         echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
         echo        '<iframe src="https://calendar.google.com/calendar/embed?src=do2v2kmb9p6o2ilis9345qc9dk%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>';
         echo     '</div>';
-        // echo '</div>';
 
     }
 }// End class

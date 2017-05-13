@@ -179,7 +179,7 @@ body {
                 padding: 0 .75em;
             }
             img {
-                margin: .5em auto;
+                // margin: .5em auto;
             }
 
             .sesc-home-posts {
@@ -358,6 +358,7 @@ body {
                 border-left: 3px solid #2091cd;
             }
             #nomadHeader {
+
                 .headerSocialMediaLogin {
                     ul {
                         float: right;
@@ -370,6 +371,14 @@ body {
                         margin: 1% auto;
                     }
                 }
+
+            }
+            #main_nav_container {
+
+                    ul li a {
+                        padding: .5em;
+                        font-size: .95em;
+                    }
 
             }
             .navbar {
@@ -390,14 +399,26 @@ body {
             }
             .main-nav {
                 position: relative;
+
             }
             #header {
                 padding-top: 20px;
             }
             .sesc-home-slider {
                 display: block;
-                margin: 1.5em 0 0 0;
-
+                margin: 2em 0 0 0;
+                .carousel-inner {
+                    height: 300px;
+                }
+                img {
+                    // height: 300px;
+                    display: block;
+                    display: block;
+                }
+                .carousel-indicators {
+                    left: 15%;
+                    bottom: 20%;
+                }
                 .sesc-slider-excerpt {
                     position: absolute;
                     top: 0;
@@ -410,12 +431,12 @@ body {
 
                     h1 {
                         color: #ffffff;
-                        font-size: 1.5em;
+                        font-size: 1.25em;
                         margin: 10% auto;
                         text-align: center;
                         margin: 2% auto;
                         padding: 1em;
-                        line-height: 1.5em;
+                        line-height: 1.25em;
                     }
                 }
                 .carousel-caption {
@@ -430,7 +451,11 @@ body {
             .sesc-home-post-parent-col {
                 padding-right: 0;
             }
-
+            .sesc-home-aside {
+                .home-subscribe-button {
+                    font-size: 1.25em;
+                }
+            }
             .sesc-call-to-action-footer {
                 .sesc-footer-teachers {
                     border-left: 3px solid $sesc_blue;
@@ -476,7 +501,30 @@ body {
                         width: 100%;
                     }
                 }
+            }
+            #main_nav_container {
 
+                ul li a {
+                    padding: .5em 1em;
+                }
+
+            }
+            .sesc-home-slider {
+                img {
+                    height: 400px;
+                }
+                .carousel-indicators {
+                    bottom: 5%;
+                }
+                .carousel-inner {
+                    height: 400px;
+                }
+                .sesc-slider-excerpt {
+                    h1 {
+                        font-size: 1.5em;
+                        line-height: 1.25em;
+                    }
+                }
             }
             // for the news real
             .sesc-call-to-action-footer {
