@@ -1,6 +1,9 @@
 /*
 * @summary style variables
 */
+html {
+  margin-top: 0 !important; }
+
 body {
   background: #bfbfbf !important; }
 
@@ -16,10 +19,25 @@ body {
   margin-bottom: 0;
   margin-top: 0; }
 
+.sesc-no-home-sections-margin {
+  margin: 0;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 0;
+  margin-top: 0; }
+
 .sesc-no-padding {
   padding: 0;
   padding-right: 0;
   padding-left: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 1600px; }
+
+.sesc-no-home-section-padding {
+  padding: 0;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
   padding-bottom: 0;
   padding-top: 0;
   max-width: 1600px; }
@@ -67,6 +85,24 @@ body {
         text-align: center; }
       #wrapper #inner-wrapper .main-nav .menu-item + .active {
         background: #245682 !important; }
+      #wrapper #inner-wrapper .main-nav #main_nav_container {
+        padding-left: 0;
+        padding-right: 0; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container #navigation ul.nav li.current-menu-ancestor a {
+          background-color: #2091cd !important; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container .current_page_item {
+          background-color: #245682; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container ul li a {
+          color: #ffffff !important; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container .dropdown-menu {
+          padding: 0;
+          background-color: #245682; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container .open > a {
+          color: #000000 !important; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container .open .dropdown-menu li a {
+          color: #ffffff !important; }
+        #wrapper #inner-wrapper .main-nav #main_nav_container .opena:hover {
+          background-color: #245682; }
     #wrapper #inner-wrapper .navbar-default {
       z-index: 100;
       border-color: transparent; }
@@ -103,11 +139,13 @@ body {
       text-align: center; }
       #wrapper #inner-wrapper .sesc-home-main-article h2 {
         font-size: 2em;
-        padding: 0 .75em;
-        margin: .5em auto; }
+        padding: 0;
+        margin: .5em auto;
+        line-height: 1.2; }
       #wrapper #inner-wrapper .sesc-home-main-article h3 {
         font-size: 1.5em;
-        padding: 0 .75em; }
+        padding: 0;
+        line-height: 1.25; }
       #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts p {
         padding: 0 6%;
         margin: 2% auto; }
@@ -122,7 +160,7 @@ body {
         /*margin: 0 4% 0 0;*/ }
     #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container {
       text-align: left;
-      padding: 1em;
+      padding: 1em 0;
       margin: 2em 0;
       border-top: 3px solid #2091cd; }
       #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container h1 {
@@ -192,6 +230,8 @@ body {
         display: block; }
       #wrapper #footer #sesc-footer-nav li {
         display: block; }
+    #wrapper #footer .sesc-footer-copyright h4 {
+      color: #000000; }
 
 /* From ARIA */
 /* Extra small devices (phones, less than 768px) */
@@ -204,14 +244,28 @@ body {
     #wrapper #inner-wrapper header {
       border-right: 3px solid #2091cd;
       border-left: 3px solid #2091cd; }
-    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul {
-      float: right; }
-    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
-      width: 50%;
-      margin: 1% auto; }
+      #wrapper #inner-wrapper header #nomadHeader {
+        width: 100%; }
+        #wrapper #inner-wrapper header #nomadHeader .headerSocialMediaLogin .searchform {
+          width: 100%;
+          margin: 1% auto; }
+    #wrapper #inner-wrapper #main_nav_container #menu-main li {
+      padding: .55em; }
+      #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
+        padding: .55em;
+        background-color: #2091cd; }
+      #wrapper #inner-wrapper #main_nav_container #menu-main li .active {
+        background-color: #245682; }
+      #wrapper #inner-wrapper #main_nav_container #menu-main li .open a:focus {
+        background-color: #245682; }
+    #wrapper #inner-wrapper #main_nav_container .dropdown-menu {
+      padding: 0;
+      background-color: #245682; }
+      #wrapper #inner-wrapper #main_nav_container .dropdown-menu lihover {
+        background-color: #2091cd; }
     #wrapper #inner-wrapper #main_nav_container ul li a {
       padding: .5em;
-      font-size: .95em; }
+      font-size: .75em; }
     #wrapper #inner-wrapper .navbar {
       border-radius: 0;
       border: none;
@@ -278,12 +332,20 @@ body {
 /* Medium devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
   #wrapper #inner-wrapper .sesc-home-posts {
-    border: 3px solid #2091cd;
-    margin: 1em 0; }
+    margin: 1em 0;
+    border-top: 3px solid #2091cd;
+    border-right: 3px solid #2091cd;
+    border-bottom: 3px solid #2091cd;
+    border-left: 3px solid #2091cd; }
   #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
     width: 100%; }
+  #wrapper #inner-wrapper #main_nav_container #menu-main li {
+    padding: .5em; }
+    #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
+      padding: .5em; }
   #wrapper #inner-wrapper #main_nav_container ul li a {
-    padding: .5em 1em; }
+    padding: .5em 1em;
+    font-size: .95em; }
   #wrapper #inner-wrapper .sesc-home-slider img {
     height: 400px; }
   #wrapper #inner-wrapper .sesc-home-slider .carousel-indicators {
@@ -293,6 +355,10 @@ body {
   #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
     font-size: 1.5em;
     line-height: 1.25em; }
+  #wrapper #inner-wrapper .sesc-home-main-article h2 {
+    padding: 0 .75em; }
+  #wrapper #inner-wrapper .sesc-home-main-article h3 {
+    padding: 0 .75em; }
   #wrapper #inner-wrapper .sesc-call-to-action-footer a {
     color: #ffffff;
     display: block;
@@ -300,8 +366,11 @@ body {
   #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
     border-bottom-left-radius: 1.5em; }
   #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-partners {
-    border-bottom-right-radius: 1.5em; } }
+    border-bottom-right-radius: 1.5em; }
+  #wrapper #footer .sesc-footer-copyright h4 {
+    text-align: left;
+    padding-left: 3em; } }
 
-/* Large devices (large desktops, 1200px and up) */
+/* Large devices (large desktops, 1200px and up @screen-lg-min) */
 
 /*# sourceMappingURL=sesc_custom_styles.css.map */

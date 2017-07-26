@@ -18,10 +18,10 @@ get_header();
 // $page_template = woo_get_page_template();
 ?>
 
-<div class="container-fluid sesc-no-padding">
+<div class="container-fluid sesc-no-home-section-padding">
     <section>
         <article class="sesc-home-main-article">
-            <div class="row sesc-no-margin" role="main">
+            <div class="row sesc-no-home-sections-margin" role="main">
                 <div class="col-xs-12 col-sm-8 sesc-section">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12">
@@ -34,7 +34,9 @@ get_header();
                             * @param string $number  - Number of posts
                             */
                             if ( class_exists( 'SESCPosts' ) ) {
-                               $sesc_posts->sesc_build_home_slider( 'post', 'home-slider-post' );
+
+                               $sesc_posts->sesc_build_home_slider( 'post', 'home-slider-post', '3', 'date' );
+
                             }
                             ?>
                             </div>
@@ -82,6 +84,7 @@ get_header();
                                 * @summary Builds HTML for the google calander
                                 */
                                 if ( class_exists( 'SESCPosts' ) ) {
+
                                    $sesc_posts->sesc_build_home_aside_google_calendar();
                                 }
                                 ?>

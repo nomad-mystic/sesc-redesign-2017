@@ -15,20 +15,20 @@ class SESCPosts {
     * @param string post_type - Type of post ie post, resources_post
     * @param string category_name  - Type of post ie resources-families-post
     * @param string $number  - Number of posts
+    * @param string $menu_order  - The order posts will be desplay
     */
-    public function sesc_posts_factory( $post_type = 'post', $category_name = null, $number ) {
+    public function sesc_posts_factory( $post_type = 'post', $category_name = null, $number = '3', $menu_order = 'menu_order title') {
         // WP_Query arguments
-		$args = array (
-			'post_type'              => array( $post_type ),
+		$args = [
+			'post_type'              => [ $post_type ],
 			'category_name'          => $category_name,
 			'order'                  => 'ASC',
-			'orderby'                => 'menu_order title',
-			'posts_per_page'         =>  $number
-		);
+			'orderby'                => $menu_order,
+			'posts_per_page'         => $number
+		];
 
         return $args;
     }
-
 
     /**
     * @author Keith Murphy - nomad - nomadmystics@gmail.com
@@ -79,7 +79,7 @@ class SESCPosts {
     * @param string category_name 'home-slider-post'  - Type of post ie resources-families-post
     * @param string $number  - Number of posts
     */
-    public function sesc_build_home_slider( $post_type, $category_name, $number = '4' ) {
+    public function sesc_build_home_slider( $post_type, $category_name, $number = '3', $menu_order ) {
 
         // The Query
         $sesc_slider_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
@@ -104,10 +104,10 @@ class SESCPosts {
 
             				$sesc_slider_query->the_post();
 
-                            echo '<div class="sesc-slide-item item">';
-                            echo '  <a href="' . get_permalink() . '" role="presentation">';
+                            echo '<div class="sesc-slide-item item" role="presentation">';
+                            // echo '  <a href="' . get_permalink() . '" role="presentation">';
                             echo        get_the_post_thumbnail( $sesc_slider_query->get( 'ID' ) );
-                            echo '  </a>';
+                            // echo '  </a>';
                             echo '  <div class="sesc-slider-excerpt carousel-caption">';
                             echo '      <h1>' . get_the_title( $sesc_slider_query->get( 'ID' ) ) . '</h1>';
                             echo '  </div>';
@@ -142,13 +142,13 @@ class SESCPosts {
         // The Query
         // $sesc_home_news_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
 
-        $sesc_home_news_args = array (
-			'post_type'              => $post_type,
-			// 'category_name'          => $category_name,
-			'order'                  => 'ASC',
-			'orderby'                => 'menu_order title',
-			'posts_per_page'         =>  $number
-		);
+        $sesc_home_news_args = [
+            'post_type'              => $post_type,
+            // 'category_name'          => $category_name,
+            'order'                  => 'DESC',
+            'orderby'                => 'date',
+            'posts_per_page'         => $number,
+        ];
 
         $sesc_home_news_query = new WP_Query( $sesc_home_news_args );
 
@@ -167,7 +167,6 @@ class SESCPosts {
                 echo        '</a>';
                 echo    '<p>';
 
-                // substr( the_content(), 0, 30 );
                 the_excerpt();
 
                 echo    '</p>';
@@ -189,18 +188,85 @@ class SESCPosts {
         echo        '<a href="' . $site_url . '/stay-current/news/" role="button">View Archives</a>';
         echo     '</div>';
 
+
     }
 
     /**
     * @author Keith Murphy - nomad - nomadmystics@gmail.com
     * @summary Builds the google calendar for the aside
-    * Category home-news-widget
+    *
     */
     public function sesc_build_home_aside_google_calendar() {
 
-        echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
-        echo        '<iframe src="https://calendar.google.com/calendar/embed?src=do2v2kmb9p6o2ilis9345qc9dk%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>';
-        echo     '</div>';
+        if ( !is_user_logged_in() || current_user_can( 'subscriber' ) ) {
+
+            echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
+            echo        '<iframe src="https://calendar.google.com/calendar/embed?src=vk2hqql34cpfcnmfcco3vh6jm4%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" scrolling="no"></iframe>';
+            echo     '</div>';
+
+        } else {
+
+            echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
+            echo        '<iframe src="https://calendar.google.com/calendar/embed?src=1v3dohds13bc2427jlkptpljgg%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" scrolling="no"></iframe>';
+            echo     '</div>';
+
+        }
 
     }
+
+    /**
+    * @author Keith Murphy - nomad - nomadmystics@gmail.com
+    * @summary Builds HTML for posts on the stay current page
+    * @param string post_type 'post' - Type of post ie post, resources_post
+    * @param string category_name 'home-slider-post'  - Type of post ie resources-families-post
+    * @param string $number  - Number of posts
+    */
+
+    public function sesc_build_stay_current_posts( $post_type, $category_name, $number ) {
+
+        // The Query
+        $sesc_stay_current_posts_args = [
+            'post_type'              => $post_type,
+			'order'                  => 'ASC',
+			'orderby'                => 'menu_order',
+			'posts_per_page'         =>  $number,
+        ];
+
+        $sesc_stay_current_posts_query = new WP_Query( $sesc_stay_current_posts_args );
+
+		// The Loop
+		if ( $sesc_stay_current_posts_query->have_posts() ) {
+			while ( $sesc_stay_current_posts_query->have_posts() ) {
+
+				$sesc_stay_current_posts_query->the_post();
+
+				echo '<div class="entry-content row">';
+                echo    '<div class="col-xs-12">';
+                echo '       <div class="post hentry ivycat-post">';
+                echo           '<h2 class="entry-title"><a href="' . get_permalink( $sesc_stay_current_posts_query->ID ) .'">' . get_the_title() .'</a></h2>';
+                echo               '<div class="entry-summary">';
+                echo	                '<p>Registration for the 2017 Special Education Boot Camp, is now closed.&nbsp; Theres always a possibility of last-minute cancellations.&nbsp; Contact Jill […]</p>';
+                echo                '</div>';
+                	    //                <div class="entry-utility">
+                		// 				<span class="comments-link"><a href="http://specialeducationsupportcenter.org/news/2017-special-ed-boot-camp-filled/#respond">Leave a comment</a></span>
+                		// <span class="meta-sep">|</span> <span class="edit-link"><a class="post-edit-link" href="http://specialeducationsupportcenter.org/wp-admin/post.php?post=2134&amp;action=edit">Edit</a></span>	</div>
+                echo           '</div>';
+		  		the_excerpt();
+ 		  		echo     '</div>';
+ 		  		echo '</div>';
+
+			}
+            wp_reset_postdata();
+
+		} else {
+
+            echo '<div class="entry-content">';
+            echo '  <h1>Sorry! No Posts Found.</h1>';
+            echo '</div>';
+
+		}
+
+    } // end sesc_build_stay_current_posts
+
+
 }// End class

@@ -8,14 +8,14 @@
 */
 
 jQuery(document).ready(function ($) {
-	////// Naivations 
-	// THis is for the about page area non-memeber area 
+	////// Naivations
+	// THis is for the about page area non-memeber area
 	$('#aboutPageNAV a').each(function () {
 		var siteHref = window.location.href;
 		var stringSiteHref = String(siteHref);
 		var slicedSiteHref = stringSiteHref.slice(40);
 		var sitePathname = window.location.pathname;
-		// This is comparing strings and pathways to add current class 
+		// This is comparing strings and pathways to add current class
 		if (sitePathname === slicedSiteHref) {
 			if ('http://specialeducationsupportcenter.org/about-us/' === siteHref) {
 				$('.aboutPageFirstH4 h4').attr('class', 'currentLeftNavItem');
@@ -26,9 +26,9 @@ jQuery(document).ready(function ($) {
 			} else if ('http://specialeducationsupportcenter.org/about-us/contact/' === siteHref) {
 				$('a[href*="' + sitePathname + '"]').find('> h4').attr('class', 'currentLeftNavItem');
 			}
-		} // end if 
+		} // end if
 	}); // end each
-	// Goin to be the functions that add current class on pge load for the resources page 
+	// Goin to be the functions that add current class on pge load for the resources page
 	$('#resourcePageNav a').each(function () {
 		//var siteHref;
 		//var $disabilityNavDiv = $('.disabilityNavDiv'),
@@ -38,7 +38,7 @@ jQuery(document).ready(function ($) {
 		var stringSiteHref = String(siteHref);
 		var slicedSiteHref = stringSiteHref.slice(40);
 		var sitePathname = window.location.pathname;
-		// This is comparing strings and pathways to add current class 
+		// This is comparing strings and pathways to add current class
 		if (sitePathname === slicedSiteHref) {
 
 			if ('http://specialeducationsupportcenter.org/resources/' === siteHref) {
@@ -52,16 +52,16 @@ jQuery(document).ready(function ($) {
 			} else {
 				$('a[href*="' + sitePathname + '"]').find('> h4').attr('class', 'currentLeftNavItem');
 				$('a[href*="' + sitePathname + '"]').find('> .navDivLevelTwoItem').attr('class', 'currentLeftNavItem navDivLevelTwoItem');
-			} // end if 
-		} // End if 
-	}); // end each 
-	// This is going to be the function that adds currentLeftNavItem to the Instructional Support pages 
+			} // end if
+		} // End if
+	}); // end each
+	// This is going to be the function that adds currentLeftNavItem to the Instructional Support pages
 	$('#instructionalPageNav a').each(function () {
 		var siteHref = window.location.href;
 		var stringSiteHref = String(siteHref);
 		var slicedSiteHref = stringSiteHref.slice(40);
 		var sitePathname = window.location.pathname;
-		// This is comparing strings and pathways to add current class 
+		// This is comparing strings and pathways to add current class
 		if (sitePathname === slicedSiteHref) {
 
 			if ('http://specialeducationsupportcenter.org/instructional-support/' === siteHref) {
@@ -73,8 +73,8 @@ jQuery(document).ready(function ($) {
 			} else {
 				$('a[href*="' + sitePathname + '"]').find('> h4').attr('class', 'currentLeftNavItem');
 				$('a[href*="' + sitePathname + '"]').find('> .navDivLevelTwoItem').attr('class', 'currentLeftNavItem navDivLevelTwoItem');
-			} // end if 
-		} // End if 
+			} // end if
+		} // End if
 	}); // end each
 	// THis is going to be giving CSS style to the links of the LeftColNav
 	$('#stayCurrentNav a').each(function () {
@@ -93,8 +93,8 @@ jQuery(document).ready(function ($) {
 				$('a[href*="' + sitePathname + '"]').find('> h4').attr('class', 'currentLeftNavItem');
 			} else if ('http://specialeducationsupportcenter.org/stay-current/policy-updates/' === siteHref) {
 				$('a[href*="' + sitePathname + '"]').find('> h4').attr('class', 'currentLeftNavItem');
-			} // end if 
-		} // End if 
+			} // end if
+		} // End if
 	}); // end each
 
 	$('.projectsPageLeftNAV a').each(function () {
@@ -113,9 +113,9 @@ jQuery(document).ready(function ($) {
 		} // End if
 	}); // end each
 
-	// This is going to grab each Nav section that needs to be shown when on current page 
-	// Resources pages 
-	// Disability Section 
+	// This is going to grab each Nav section that needs to be shown when on current page
+	// Resources pages
+	// Disability Section
 	var $disabilityNavDiv = $('.disabilityNavDiv'),
 	    $disabilityCategoriesNavContent = $('.disabilityCategoriesNavContent');
 	// This is removing the nav items if the user has javascript
@@ -123,9 +123,9 @@ jQuery(document).ready(function ($) {
 		$($disabilityCategoriesNavContent).css('display', 'block');
 	} else {
 		$($disabilityCategoriesNavContent).css('display', 'none');
-	} // end if 
+	} // end if
 
-	// IDEA VAR 
+	// IDEA VAR
 	// THis is for the navigation leftHand Side
 	var $IDEANavDivH4 = $('.IDEANavDiv h4'),
 	    $IDEANavDiv = $('.IDEANavDiv'),
@@ -146,9 +146,9 @@ jQuery(document).ready(function ($) {
 		$agenciesAdvoNAVContent.css('display', 'none');
 	} // end if
 
-	// THis is going to show nav when in a child of a parent and flip the Arrows on the current Pages for Instructional Pages 
+	// THis is going to show nav when in a child of a parent and flip the Arrows on the current Pages for Instructional Pages
 
-	////////////////////IDEA 
+	////////////////////IDEA
 	$($IDEANavDivH4).on('click', function (evnt) {
 		evnt.preventDefault();
 		IDEANavClickEvent();
@@ -180,11 +180,11 @@ jQuery(document).ready(function ($) {
 		}
 	}; // end IDEANavClickEvent
 
-	////////////////////Disability Categories 
+	////////////////////Disability Categories
 	// tHis is getting the variables for the the left hand side navigation system Resources page disability categories
 
 	// This is the animation for the disabilty Cat left side navigation
-	// slides down nav and slides up nav 
+	// slides down nav and slides up nav
 	// rotates the arrow from facing right to downward
 	$('.disabilityNavDiv h4').on('click', function (evnt) {
 		evnt.preventDefault();
@@ -291,7 +291,7 @@ jQuery(document).ready(function ($) {
 	}); // end $accordionH3.on('click', function(evnt)
 	// Test grabbing ::after
 	////////////////////////////////////////////////////////////////////
-	/////////////// This is going to be the Navigation area animations for the Instructional Support Pages 
+	/////////////// This is going to be the Navigation area animations for the Instructional Support Pages
 	// THis is for the Instructional Support Section of the NAV
 	var $schoolResourcesNavContent = $('.schoolResourcesNavContent'),
 	    $schoolResourcesNavDiv = $('.schoolResourcesNavDiv');
@@ -301,11 +301,11 @@ jQuery(document).ready(function ($) {
 	} else {
 		$($schoolResourcesNavContent).css('display', 'none');
 	}
-	// Click event for Nav 
+	// Click event for Nav
 	$('.schoolResourcesNavDiv h4').on('click', function (evnt) {
 		evnt.preventDefault();
 		schoolResourcesClickEvent();
-	}); // end schoolResourcesNavDiv Click event 
+	}); // end schoolResourcesNavDiv Click event
 	var schoolResourcesClickEvent = function schoolResourcesClickEvent() {
 		if ($schoolResourcesNavDiv.hasClass('clicked')) {
 			$('#instructionalPageNav .schoolResourcesNavDiv h4 span.floatRight').animate({ borderSpacing: 0 }, {
@@ -331,7 +331,7 @@ jQuery(document).ready(function ($) {
 			$schoolResourcesNavDiv.addClass('clicked');
 		}
 	};
-	///////////////////////// This for the Training and coaching Section of the NAV 
+	///////////////////////// This for the Training and coaching Section of the NAV
 	var $trainingCoachingNavContent = $('.trainingCoachingNavContent'),
 	    $trainingCoachingNavDiv = $('.trainingCoachingNavDiv');
 
@@ -407,7 +407,7 @@ jQuery(document).ready(function ($) {
 		} // end if
 	} // end resourcesNAVAnimation()
 	leftNAVAnimation();
-	///////////////////////////////////////////////// For widget areas 
+	///////////////////////////////////////////////// For widget areas
 	//This is going to change the pictures and links for the right sideBar area Primary
 	function sidebarElementSwap() {
 
@@ -536,10 +536,93 @@ jQuery(document).ready(function ($) {
 			'eventLabel': 'Handbook Sidebar Link'
 		});
 	});
-}); // End Ready 
+}); // End Ready
 
-////////////////////////////////////// Not Needed for the site because thing have change in the way a user navigates through the site 
-// GOOD PRACTICE 
+/**
+* @author Keith Murphy - nomad - nomadmystics@gmail.com
+* @summary Javascript functions for the home page
+* Date added 5-24-2017
+*/
+
+/**
+* @author Keith Murphy - nomad - nomadmystics@gmail.com
+* @summary Build the home page slider
+*/
+
+var sescBuildHomePageSlider = function ($) {
+    var _this = this;
+
+    // DOM Pieces
+    var slides = window.document.querySelectorAll('.sesc-slide-item');
+    var slidesParentContainer = window.document.querySelector('.carousel-inner');
+
+    /**
+    * @summary All all initial functions here
+    */
+    var init = function init() {
+
+        addClasses();
+        // keepImgRatio();
+    };
+
+    /**
+    * @summary Add classes here
+    */
+    var addClasses = function addClasses() {
+
+        // Slide 0 needs to have active if the slider is going to function properly
+        slides[0].classList.add('active');
+    };
+
+    var keepImgRatio = function keepImgRatio() {
+
+        // console.log(slidesParentContainer);
+        var refContainerWidth = slidesParentContainer.offsetWidth;
+        var refContainerHeight = 400;
+        var refRatio = refContainerWidth / refContainerHeight;
+
+        for (var i = 0; i < slides.length; i++) {
+
+            var imgHeight = slides[i].children[0].children[0].offsetHeight;
+            var imgWidth = slides[i].children[0].children[0].offsetWidth;
+
+            console.log(slides[1]);
+            console.log(slides[i].children[0].children[0].offsetWidth);
+            console.log(slides[i].children[0].children[0].offsetHeight);
+
+            if (imgW / imgH < refRatio) {
+                $(_this).addClass("portrait");
+            } else {
+                $(_this).addClass("landscape");
+            }
+        }
+    };
+
+    /**
+    * @todo on screen size change keepImgRatio
+    */
+
+    /**
+    * @todo When slide changes keepImgRatio
+    */
+    // $('.sesc-home-slider').on('slide.bs.carousel', function () {
+    //     keepImgRatio();
+    // });
+
+    return {
+        init: init
+    };
+}(jQuery);
+
+sescBuildHomePageSlider.init();
+
+
+
+
+
+
+////////////////////////////////////// Not Needed for the site because thing have change in the way a user navigates through the site
+// GOOD PRACTICE
 // THis is going to jump user to the link chosen for the navDivLevelTwoItem
 // $('.navDivLevelTwoContent a').on('click', function(evnt) {
 // 	var f_activeNumber,
@@ -558,9 +641,9 @@ jQuery(document).ready(function ($) {
 // 	targetHref = evnt.currentTarget.attributes[0].nodeValue;
 // 	// sliceTargetHref = targetHref.slice(1);
 // 	targetHrefScrollObject = targetHref;
-// 	var stringTest = targetHrefScrollObject.toString(); 
+// 	var stringTest = targetHrefScrollObject.toString();
 
-// 	testText = $(event.target).text(); 
+// 	testText = $(event.target).text();
 // 	console.log(testText);
 // 	// var resourceIntellectualDisabilities = $('#resourceIntellectualDisabilities');
 // 	// resourceIntellectualDisabilities.scrollIntoView();

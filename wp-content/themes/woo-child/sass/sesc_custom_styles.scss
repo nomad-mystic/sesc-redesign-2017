@@ -8,6 +8,10 @@ $sesc_blue: #2091cd;
 $sesc_dark_blue: #245682;
 $sesc_site_map_blue: #0F4880;
 $sesc_grey: #bfbfbf;
+
+html {
+    margin-top: 0 !important;
+}
 body {
     background: $sesc_grey !important;
 
@@ -25,6 +29,13 @@ body {
     margin-bottom: 0;
     margin-top: 0;
 }
+.sesc-no-home-sections-margin {
+    margin: 0;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 0;
+    margin-top: 0;
+}
 .sesc-no-padding {
     padding: 0;
     padding-right: 0;
@@ -33,6 +44,15 @@ body {
     padding-top: 0;
     max-width: 1600px;
 }
+.sesc-no-home-section-padding {
+    padding: 0;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    padding-bottom: 0;
+    padding-top: 0;
+    max-width: 1600px;
+}
+
 .screen-reader-text {
   /* Reusable, toolbox kind of class */
   position: absolute;
@@ -76,6 +96,7 @@ body {
                 }
             }
         }
+
         .main-nav {
             position: absolute;
             top: 0;
@@ -101,7 +122,42 @@ body {
             .menu-item + .active {
                 background: $sesc_dark_blue !important;
             }
+            #main_nav_container {
+                padding-left: 0;
+                padding-right: 0;
 
+                #navigation ul.nav li.current-menu-ancestor a {
+                    background-color: $sesc_blue !important;
+                }
+                .current_page_item {
+                    background-color: $sesc_dark_blue;
+                }
+                ul li a {
+                    color: #ffffff !important;
+                }
+                .dropdown-menu {
+                    padding: 0;
+                    background-color: $sesc_dark_blue;
+                }
+                .open  {
+                    > {
+                        a {
+                            color: #000000 !important;
+                        }
+                    }
+                    .dropdown-menu {
+
+                        li {
+                            a {
+                                color: #ffffff !important;
+                            }
+                        }
+                    }
+                    &a:hover {
+                        background-color: $sesc_dark_blue;
+                    }
+                }
+            }
         }
         // Remove defaults
         .navbar-default {
@@ -171,12 +227,14 @@ body {
             // margin: 20px 0;
             h2 {
                 font-size: 2em;
-                padding: 0 .75em;
+                padding: 0;
                 margin: .5em auto;
+                line-height: 1.2;
             }
             h3 {
                 font-size: 1.5em;
-                padding: 0 .75em;
+                padding: 0;
+                line-height: 1.25;
             }
             img {
                 // margin: .5em auto;
@@ -207,7 +265,7 @@ body {
         .sesc-home-aside {
             .sesc-home-news-post-container  {
                 text-align: left;
-                padding: 1em;
+                padding: 1em 0;
                 margin: 2em 0;
                 border-top: 3px solid $sesc_blue;
 
@@ -317,6 +375,14 @@ body {
                 display: block;
             }
         }
+
+        .sesc-footer-copyright {
+
+            h4 {
+                color: #000000;
+            }
+
+        }
     } // end footer
 } // end wrapper
 
@@ -356,31 +422,78 @@ body {
             header {
                 border-right: 3px solid #2091cd;
                 border-left: 3px solid #2091cd;
-            }
-            #nomadHeader {
 
-                .headerSocialMediaLogin {
-                    ul {
-                        float: right;
-                        li {
+                #nomadHeader {
+                    width: 100%;
+                    .headerSocialMediaLogin {
+                        ul {
+                            // float: right;
+                            li {
 
+                            }
+                        }
+                        .searchform {
+                            width: 100%;
+                            margin: 1% auto;
                         }
                     }
-                    .searchform {
-                        width: 50%;
-                        margin: 1% auto;
-                    }
                 }
-
             }
+
+
             #main_nav_container {
 
-                    ul li a {
-                        padding: .5em;
-                        font-size: .95em;
+                #menu-main li {
+                    padding: .55em;
+
+                    &:hover {
+                        padding: .55em;
+                        background-color: $sesc_blue;
+                    }
+                    .active {
+                        background-color: $sesc_dark_blue;
+                    }
+                    .open {
+                        a:focus {
+                            background-color: $sesc_dark_blue;
+                        }
                     }
 
+                }
+                .dropdown-menu {
+                    padding: 0;
+                    background-color: $sesc_dark_blue;
+                    li {
+                        &hover {
+                            background-color: $sesc_blue;
+                        }
+                    }
+                }
+                ul li a {
+                    padding: .5em;
+                    font-size: .75em;
+                }
+                // .open  {
+                //     > {
+                //         a {
+                //             color: #ffffff !important;
+                //         }
+                //     }
+                //     .dropdown-menu {
+                //         li {
+                //             a {
+                //                 color: #ffffff !important;
+                //             }
+                //         }
+                //     }
+                //     &a:hover {
+                //         background-color: $sesc_dark_blue;
+                //     }
+                // }
+
             }
+
+
             .navbar {
                 border-radius: 0;
                 border: none;
@@ -481,6 +594,7 @@ body {
                     display: inline-block;
                 }
             }
+
         } // end footer
     } // end #wrapper
 
@@ -491,9 +605,16 @@ body {
 
     #wrapper {
         #inner-wrapper {
+
+
+
             .sesc-home-posts {
-                border: 3px solid $sesc_blue;
+                // border: 3px solid $sesc_blue;
                 margin: 1em 0;
+                border-top: 3px solid $sesc_blue;
+                border-right: 3px solid $sesc_blue;
+                border-bottom: 3px solid $sesc_blue;
+                border-left: 3px solid $sesc_blue;
             }
             #nomadHeader {
                 .headerSocialMediaLogin {
@@ -504,8 +625,18 @@ body {
             }
             #main_nav_container {
 
+                #menu-main li {
+                    padding: .5em;
+
+                    &:hover {
+                        padding: .5em;
+                    }
+                }
+
                 ul li a {
                     padding: .5em 1em;
+                    font-size: .95em;
+
                 }
 
             }
@@ -524,6 +655,15 @@ body {
                         font-size: 1.5em;
                         line-height: 1.25em;
                     }
+                }
+            }
+            .sesc-home-main-article {
+
+                h2 {
+                    padding: 0 .75em;
+                }
+                h3 {
+                    padding: 0 .75em;
                 }
             }
             // for the news real
@@ -545,9 +685,21 @@ body {
                 }
             }
         } // #inner-wrapper
+        #footer {
+            .sesc-footer-copyright {
 
+                h4 {
+                    text-align: left;
+                    padding-left: 3em;
+                }
+
+            }
+        }
     } // #wrapper
 }
 
-/* Large devices (large desktops, 1200px and up) */
-// @media (min-width: @screen-lg-min) { }
+/* Large devices (large desktops, 1200px and up @screen-lg-min) */
+@media (min-width: 1200px ) {
+
+
+}

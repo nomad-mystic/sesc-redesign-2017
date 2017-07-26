@@ -13,6 +13,16 @@ get_header();
 
 $page_template = woo_get_page_template();
 
+require_once( 'lib/sesc_posts.php' );
+
+$class_name = 'SESCPosts';
+
+if ( class_exists($class_name) ) {
+
+    $sesc_posts = new SESCPosts();
+
+}
+
 /**
 * @author Keith Murphy - nomad - nomadmystics@gmail.com
 */
@@ -51,7 +61,9 @@ $page_template = woo_get_page_template();
 		* @todo Remove plugin asnd do this manually
 		*/
 		// if ( class_exists( 'SESCPosts' ) ) {
-		//    $sesc_posts->sesc_build_home_news_widget( 'post', 'home-news-widget', '4');
+		//
+		//    $sesc_posts->sesc_build_stay_current_posts( 'news', '', '-1' );
+		//
 		// }
 
 

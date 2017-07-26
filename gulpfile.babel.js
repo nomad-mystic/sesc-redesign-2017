@@ -10,13 +10,6 @@ const babel = require('gulp-babel');
 const print = require('gulp-print');
 
 const livereload = require('gulp-livereload');
-// var scsslint = require('gulp-scss-lint');
-
-// gulp.task('scss-lint', function() {
-//   return gulp.src('./wp-content/themes/woo-child/sass/*.scss')
-//     .pipe(scsslint());
-// });
-
 
 gulp.task('sass', () => {
     return gulp.src('./wp-content/themes/woo-child/sass/*.scss')
@@ -27,7 +20,7 @@ gulp.task('sass', () => {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        
+
         .pipe(concat('sesc_custom_styles.css'))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./wp-content/themes/woo-child/build/css'))

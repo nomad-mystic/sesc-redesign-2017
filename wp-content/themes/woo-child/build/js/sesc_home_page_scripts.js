@@ -23,6 +23,8 @@ var sescBuildHomePageSlider = function ($) {
     var init = function init() {
 
         addClasses();
+        changeAtts();
+        jqueryFunctions();
         // keepImgRatio();
     };
 
@@ -62,17 +64,64 @@ var sescBuildHomePageSlider = function ($) {
     /**
     * @todo on screen size change keepImgRatio
     */
+    var jqueryFunctions = function() {
 
-    /**
-    * @todo When slide changes keepImgRatio
-    */
-    // $('.sesc-home-slider').on('slide.bs.carousel', function () {
-    //     keepImgRatio();
-    // });
+        $(".nav a").on("click", function(event) {
+            var target = event.currentTarget;
+            var windowWidth = window.innerWidth;
+
+            $(".nav").find(".active").removeClass("active");
+            $(this).parent().addClass("active");
+
+            console.log(windowWidth);
+            if ('767' > windowWidth && target.classList.contains('active')) {
+
+                target.style.backgroundColor = '#245682';
+                // target.style.color = '#fffffff';
+                target.setAttribute('style', ' #ffffff !important');
+
+            }
+
+       });
+
+
+
+        $('.carousel').carousel({
+            interval: 4000
+        });
+
+        /**
+        * @todo When slide changes keepImgRatio
+        */
+        $('.sesc-home-slider').on('slide.bs.carousel', function () {
+            // keepImgRatio();
+        });
+    }
+
+
+
+    var changeAtts = function() {
+
+        var wrapper_div = window.document.getElementById('wrapper');
+        var location = window.location.pathname;
+        var htmlElement = window.document.documentElement;
+
+        if ('/home-page-redesign/' === location) {
+
+            htmlElement.setAttribute('style', 'margin-top: 0 !important');
+            // htmlElement.style.marginTop = '';
+            wrapper.setAttribute('style', 'max-width: 1220px !important');
+            // wrapper.style.maxWidth = '1220px !important';
+
+        }
+
+    };
+
 
     return {
         init: init
     };
+
 }(jQuery);
 
 sescBuildHomePageSlider.init();

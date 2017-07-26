@@ -112,7 +112,7 @@
 		/**
 		* @todo Test to see if I can use this Nav for all pages
 		*/
-		if ( get_permalink() == 'http://localhost/sesc/home/' || get_permalink() == 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
+		if ( get_permalink() == 'http://localhost/sesc/' || get_permalink() == 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
 
 			if ( class_exists( 'SESC_menus' ) ) {
 
