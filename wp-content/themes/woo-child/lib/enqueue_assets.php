@@ -42,15 +42,16 @@ class SESC_enqueue {
 
         }
 
-
-
         /**
         * @todo Turn this on when approved
         */
-        if ( get_permalink() === 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
+        if ( get_permalink() == 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
 
-            // wp_register_script( 'sesc_home_page_scripts' , get_stylesheet_directory_uri() . '/build/js/sesc_home_page_scripts.js', ['jquery', 'jquery-ui'], '1.0.0', true );
-            // wp_enqueue_script( 'sesc_home_page_scripts' );
+            wp_register_script( 'sesc_home_page_scripts' , get_stylesheet_directory_uri() . '/build/js/sesc_home_page_scripts.js', ['jquery', 'jquery-ui'], '1.0.0', true );
+            wp_enqueue_script( 'sesc_home_page_scripts' );
+
+            wp_register_script( 'sesc_main_scripts' , get_stylesheet_directory_uri() . '/build/js/main.js', ['jquery', 'jquery-ui'], '1.0.0', true );
+            wp_enqueue_script( 'sesc_main_scripts' );
 
             // var_dump('custom home scripts');
             // var_dump(wp_script_is('sesc_home_page_scripts', 'registered'));
@@ -58,7 +59,6 @@ class SESC_enqueue {
             // var_dump(wp_script_is('sesc_home_page_scripts', 'done'));
             // var_dump(wp_script_is('sesc_home_page_scripts', 'to_do'));
         }
-
 
         wp_register_script( 'bootstrap_libary_js', get_stylesheet_directory_uri() . '/vendor/bootstrap.min.js', ['jquery'], '', true );
         wp_enqueue_script( 'bootstrap_libary_js' );
@@ -105,12 +105,14 @@ class SESC_enqueue {
         //     var_dump(wp_script_is('sesc_custom_scripts', 'to_do'));
         // }
 
+
         /**
         * @author nomadmystics@gmail.com
         * @summary only load these styles if the page is home for now 4-6-2017
         * @todo Turn on for home page aftert the changes are made live
         */
-        if ( get_permalink() === 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
+        if ( get_permalink() == 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
+
             wp_enqueue_style( 'sesc_custom_styles', get_stylesheet_directory_uri() . '/build/css/sesc_custom_styles.css', '1.0.0' );
             wp_enqueue_style( 'sesc_custom_styles' );
         }

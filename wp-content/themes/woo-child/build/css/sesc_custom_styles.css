@@ -69,6 +69,13 @@ body {
         display: inline-block; }
     #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
       width: 100%; }
+    #wrapper #inner-wrapper #nomadHeader .sesc-home-header-title h3 {
+      font-size: 1.30em;
+      font-family: initial;
+      margin: 4% auto;
+      text-align: center;
+      letter-spacing: .10em;
+      color: #0081c6; }
     #wrapper #inner-wrapper .main-nav {
       position: absolute;
       top: 0;
@@ -158,6 +165,8 @@ body {
         width: 100%;
         padding: 0 6%;
         /*margin: 0 4% 0 0;*/ }
+      #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts .wea-logo {
+        margin: 6% 4% 0%; }
     #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container {
       text-align: left;
       padding: 1em 0;
@@ -168,6 +177,8 @@ body {
         line-height: 1em;
         font-size: 1em;
         margin: .5em auto; }
+      #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container .news-item {
+        margin: 2% auto; }
     #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
       font-size: 1.5em;
       margin: 10% 0;
@@ -249,6 +260,11 @@ body {
         #wrapper #inner-wrapper header #nomadHeader .headerSocialMediaLogin .searchform {
           width: 100%;
           margin: 1% auto; }
+        #wrapper #inner-wrapper header #nomadHeader .sesc-home-header-title h3 {
+          margin: 1% 0 4% 12%;
+          text-align: left;
+          letter-spacing: .25em;
+          color: #0081c6; }
     #wrapper #inner-wrapper #main_nav_container #menu-main li {
       padding: .55em; }
       #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
@@ -339,6 +355,9 @@ body {
     border-left: 3px solid #2091cd; }
   #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
     width: 100%; }
+  #wrapper #inner-wrapper #nomadHeader .sesc-home-header-title h3 {
+    margin: 1% 0 0 12%;
+    text-align: left; }
   #wrapper #inner-wrapper #main_nav_container #menu-main li {
     padding: .5em; }
     #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
@@ -359,6 +378,12 @@ body {
     padding: 0 .75em; }
   #wrapper #inner-wrapper .sesc-home-main-article h3 {
     padding: 0 .75em; }
+  #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container {
+    margin: 8% 0; }
+  #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
+    margin: 0 0 3%; }
+  #wrapper #inner-wrapper .sesc-home-aside .sesc-home-calendar-container {
+    margin: 0 auto 20px; }
   #wrapper #inner-wrapper .sesc-call-to-action-footer a {
     color: #ffffff;
     display: block;

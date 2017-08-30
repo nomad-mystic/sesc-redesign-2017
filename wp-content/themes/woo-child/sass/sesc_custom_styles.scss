@@ -95,6 +95,16 @@ body {
                     width: 100%;
                 }
             }
+            .sesc-home-header-title {
+                h3 {
+                    font-size: 1.30em;
+                    font-family: initial;
+                    margin: 4% auto;
+                    text-align: center;
+                    letter-spacing: .10em;
+                    color: #0081c6;
+                }
+            }
         }
 
         .main-nav {
@@ -256,7 +266,9 @@ body {
                     padding: 0 6%;
                     /*margin: 0 4% 0 0;*/
                 }
-
+                .wea-logo {
+                    margin: 6% 4% 0%;
+                }
             }
         }
 
@@ -276,7 +288,8 @@ body {
                     margin: .5em auto;
                 }
                 .news-item {
-                    // padding: 2em;
+                    margin: 2% auto;
+
                 }
             }
             .home-subscribe-button {
@@ -435,6 +448,14 @@ body {
                         .searchform {
                             width: 100%;
                             margin: 1% auto;
+                        }
+                    }
+                    .sesc-home-header-title {
+                        h3 {
+                            margin: 1% 0 4% 12%;
+                            text-align: left;
+                            letter-spacing: .25em;
+                            color: #0081c6;
                         }
                     }
                 }
@@ -622,6 +643,12 @@ body {
                         width: 100%;
                     }
                 }
+                .sesc-home-header-title {
+                    h3 {
+                        margin: 1% 0 0 12%;
+                        text-align: left;
+                    }
+                }
             }
             #main_nav_container {
 
@@ -664,6 +691,17 @@ body {
                 }
                 h3 {
                     padding: 0 .75em;
+                }
+            }
+            .sesc-home-aside {
+                .sesc-home-news-post-container {
+                    margin: 8% 0;
+                }
+                .home-subscribe-button {
+                    margin: 0 0 3%;
+                }
+                .sesc-home-calendar-container {
+                    margin: 0 auto 20px;
                 }
             }
             // for the news real

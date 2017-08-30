@@ -37,6 +37,7 @@ class SESCPosts {
     * @param string category_name 'home-post' - Type of post ie resources-families-post
     * @param string $number  - Number of posts
     */
+
     public function sesc_build_home_posts( $post_type, $category_name, $number = '-1') {
         // The Query
         $sesc_home_posts_args = $this->sesc_posts_factory($post_type, $category_name, $number);
@@ -50,12 +51,6 @@ class SESCPosts {
 
 				echo '<div class="entry-content row">';
                 echo    '<div class="col-xs-12 sesc-home-post-container">';
-                // echo        '<h1>' . get_the_title() . '</h1>';
-                echo        '<figure>';
-                echo            '<div class="floatLeft featured">';
-                echo                get_the_post_thumbnail( $sesc_home_posts_query->get( 'ID' ) );
-                echo            '</div>';
-                echo        '</figure>';
 		  		the_content();
  		  		echo     '</div>';
  		  		echo '</div>';
@@ -91,7 +86,7 @@ class SESCPosts {
                 <div id="sesc-home-slider" class="carousel slide" data-ride="carousel" data-interval="100000">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#sesc-home-slider" data-slide-to="0" class="active"></li>
+                        <li data-target="#sesc-home-slider" data-// padding: 2em;slide-to="0" class="active"></li>
                         <li data-target="#sesc-home-slider" data-slide-to="1"></li>
                         <li data-target="#sesc-home-slider" data-slide-to="2"></li>
                     </ol>
@@ -122,7 +117,7 @@ class SESCPosts {
                         echo '</div>';
 
             		}
-                    ?>
+                    ?>CtG Sta
                     </div><!-- end carousel-inner-->
                 </div><!-- end carousel-->
             </div><!--end sesc-slider-container-->
@@ -192,27 +187,135 @@ class SESCPosts {
     }
 
     /**
-    * @author Keith Murphy - nomad - nomadmystics@gmail.com
+    * @author Keith Murphy - nomad - nomadmystics@gmail.com// padding: 2em;
     * @summary Builds the google calendar for the aside
     *
     */
     public function sesc_build_home_aside_google_calendar() {
 
-        if ( !is_user_logged_in() || current_user_can( 'subscriber' ) ) {
+        $calendar_url = '';
+        $user_pat = get_user_by( 'email', 'patti3jo@aol.com' );
+        $user_gary = get_user_by( 'email', 'obee@learningoptions.net' );
+        $user_keith = get_user_by( 'email', 'nomadmystics@gmail.com' );
+        $user_jill = get_user_by( 'email', 'jdahlen@washingtonea.org' );
+        $user_molly = get_user_by( 'email', 'mbaasch@washingtonea.org' );
 
-            echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
-            echo        '<iframe src="https://calendar.google.com/calendar/embed?src=vk2hqql34cpfcnmfcco3vh6jm4%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" scrolling="no"></iframe>';
-            echo     '</div>';
+        $calendar_public_url = 'https://calendar.google.com/calendar/embed?src=vk2hqql34cpfcnmfcco3vh6jm4%40group.calendar.google.com&ctz=America/Los_Angeles';
+        $calendar_ctg_url = 'https://calendar.google.com/calendar/embed?src=36jkpartq77t8n9b15p5iaqc9o%40group.calendar.google.com&ctz=America/Los_Angeles';
+        $calendar_cadre_url = 'https://calendar.google.com/calendar/embed?src=1v3dohds13bc2427jlkptpljgg%40group.calendar.google.com&ctz=America/Los_Angeles';
 
-        } else {
+        // <!-- Nav tabs -->
 
-            echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
-            echo        '<iframe src="https://calendar.google.com/calendar/embed?src=1v3dohds13bc2427jlkptpljgg%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" scrolling="no"></iframe>';
-            echo     '</div>';
+        echo '<ul class="nav nav-tabs" role="tablist">';
+
+        // for
+        if ( !empty($user_pat) && 'pat' === $user_pat->user_nicename ) {
+
+            echo    '<li role="presentation" class="active"><a href="#ctg-events" aria-controls="ctg-events" role="tab" data-toggle="tab">CTG Events</a></li>';
+
+        } else if ( !empty($user_keith) && 'nomad' === $user_keith->user_nicename ) {
+
+            echo    '<li role="presentation" class="active"><a href="#ctg-events" aria-controls="ctg-events" role="tab" data-toggle="tab">CTG Events</a></li>';
+
+        } else if ( !empty($user_gary) && 'obee' === $user_gary->user_nicename ) {
+
+            echo    '<li role="presentation" class="active"><a href="#ctg-events" aria-controls="ctg-events" role="tab" data-toggle="tab">CTG Events</a></li>';
+
+        } else if ( !empty($user_jill) && 'jill' === $user_jill->user_nicename ) {
+
+            echo    '<li role="presentation" class="active"><a href="#ctg-events" aria-controls="ctg-events" role="tab" data-toggle="tab">CTG Events</a></li>';
+
+        } else if ( !empty($user_molly) && 'mollybaasch' === $user_molly->user_nicename ) {
+
+            echo    '<li role="presentation" class="active"><a href="#ctg-events" aria-controls="ctg-events" role="tab" data-toggle="tab">CTG Events</a></li>';
 
         }
 
+        // for cadre staff
+        if ( is_user_logged_in() || current_user_can( 'editor' ) ) {
+
+            echo    '<li role="presentation"><a href="#cadre-events" aria-controls="cadre-events" role="tab" data-toggle="tab">Cadre Events</a></li>';
+
+        }
+
+        // all users
+        if ( current_user_can( 'subscriber' ) ) {
+
+            echo    '<li role="presentation"><a href="#events" aria-controls="events" class="active" role="tab" data-toggle="tab">Events</a></li>';
+
+        }
+
+
+        echo '</ul>';
+
+        echo '<div class="tab-content">';
+
+        if ( !empty($user_pat) && 'pat' === $user_pat->user_nicename ) {
+
+            echo '<div role="tabpanel" class="tab-pane" id="ctg-events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_ctg_url );
+            echo '</div>';
+
+        } else if ( !empty($user_keith) && 'nomad' === $user_keith->user_nicename ) {
+
+            echo '<div role="tabpanel" class="tab-pane" id="ctg-events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_ctg_url );
+            echo '</div>';
+
+        } else if ( !empty($user_gary) && 'obee' === $user_gary->user_nicename ) {
+
+            echo '<div role="tabpanel" class="tab-pane" id="ctg-events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_ctg_url );
+            echo '</div>';
+
+        } else if ( !empty($user_jill) && 'jill' === $user_jill->user_nicename ) {
+
+            echo '<div role="tabpanel" class="tab-pane" id="ctg-events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_ctg_url );
+            echo '</div>';
+
+        } else if ( !empty($user_molly) && 'mollybaasch' === $user_molly->user_nicename ) {
+
+            echo '<div role="tabpanel" class="tab-pane" id="ctg-events">';
+            die('testing logic');
+                SESCPosts::sesc_build_home_calendar_html( $calendar_ctg_url );
+            echo '</div>';
+
+        }
+
+        // Tab content for anyone that is editor or greater
+        if ( is_user_logged_in() || current_user_can( 'editor' ) ) {
+            echo '<div role="tabpanel" class="tab-pane active" id="cadre-events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_cadre_url );
+            echo '</div>';
+        }
+
+        // Tab content for anyone that is public
+        if ( current_user_can( 'subscriber' ) ) {
+            echo '<div role="tabpanel" class="tab-pane" id="events">';
+                SESCPosts::sesc_build_home_calendar_html( $calendar_public_url );
+            echo '</div>';
+        }
+
+        echo '</div>';
+
     }
+
+
+    /**
+    * @author Keith Murphy - nomad - nomadmystics@gmail.com
+    * @summary Build home page calendar HTML
+    * @param string $calendar_url
+    **/
+
+    static public function sesc_build_home_calendar_html( $calendar_url ) {
+        die('testing logic');
+        echo    '<div class="col-xs-12 sesc-home-calendar-container embed-responsive embed-responsive-4by3">';
+        echo        '<iframe src="' . $calendar_url .'" style="border: 0" width="800" height="600" scrolling="no"></iframe>';
+        echo     '</div>';
+
+    }
+
 
     /**
     * @author Keith Murphy - nomad - nomadmystics@gmail.com

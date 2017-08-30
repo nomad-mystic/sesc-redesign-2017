@@ -10,6 +10,7 @@
 
 var sescBuildHomePageSlider = (function($) {
 
+
     // DOM Pieces
     var slides = window.document.querySelectorAll('.sesc-slide-item');
     var slidesParentContainer = window.document.querySelector('.carousel-inner');

@@ -63,9 +63,9 @@
 				</a>
 			</div>
 
-			<div class="floatLeft headerh1">
+			<div class="floatLeft headerh1 sesc-home-header-title">
 				<h1>Special Education Support Center</h1>
-				<!-- <h3>A Washington State Needs Project funded by OSPI in Partnership with the WEA</h3> -->
+				<h3>WASHINGTON EDUCATION ASSOCIATION</h3>
 			</div>
 			<div class="floatLeft headerSocialMediaLogin">
 				<div>
