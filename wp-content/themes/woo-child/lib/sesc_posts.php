@@ -232,14 +232,14 @@ class SESCPosts {
         }
 
         // for cadre staff
-        if ( is_user_logged_in() || current_user_can( 'editor' ) ) {
+        if ( is_user_logged_in() || current_user_can( 'author' ) ) {
 
             echo    '<li role="presentation"><a href="#cadre-events" aria-controls="cadre-events" role="tab" data-toggle="tab">Cadre Events</a></li>';
 
         }
 
         // all users
-        if ( current_user_can( 'subscriber' ) ) {
+        if ( !is_user_logged_in() || current_user_can( 'subscriber' ) ) {
 
             echo    '<li role="presentation"><a href="#events" aria-controls="events" class="active" role="tab" data-toggle="tab">Events</a></li>';
 
