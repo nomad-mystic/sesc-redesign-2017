@@ -1,11 +1,8 @@
 /*
 * @summary style variables
 */
-html {
-  margin-top: 0 !important; }
-
 body {
-  background: #bfbfbf !important; }
+  background: #ffffff !important; }
 
 /* General */
 .sesc-section p {
@@ -19,25 +16,10 @@ body {
   margin-bottom: 0;
   margin-top: 0; }
 
-.sesc-no-home-sections-margin {
-  margin: 0;
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-  margin-bottom: 0;
-  margin-top: 0; }
-
 .sesc-no-padding {
   padding: 0;
   padding-right: 0;
   padding-left: 0;
-  padding-bottom: 0;
-  padding-top: 0;
-  max-width: 1600px; }
-
-.sesc-no-home-section-padding {
-  padding: 0;
-  padding-right: 0 !important;
-  padding-left: 0 !important;
   padding-bottom: 0;
   padding-top: 0;
   max-width: 1600px; }
@@ -54,7 +36,6 @@ body {
   #wrapper #inner-wrapper {
     text-align: center;
     padding: 0 0;
-    background-color: #ffffff;
     /* sliders styles */ }
     #wrapper #inner-wrapper img {
       margin: 0 auto; }
@@ -62,20 +43,6 @@ body {
       display: none; }
     #wrapper #inner-wrapper #header {
       padding-top: 80px; }
-    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul {
-      font-size: 2.5em;
-      margin: -3% 0 0 0; }
-      #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin ul li {
-        display: inline-block; }
-    #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
-      width: 100%; }
-    #wrapper #inner-wrapper #nomadHeader .sesc-home-header-title h3 {
-      font-size: 1.30em;
-      font-family: initial;
-      margin: 4% auto;
-      text-align: center;
-      letter-spacing: .10em;
-      color: #0081c6; }
     #wrapper #inner-wrapper .main-nav {
       position: absolute;
       top: 0;
@@ -92,34 +59,15 @@ body {
         text-align: center; }
       #wrapper #inner-wrapper .main-nav .menu-item + .active {
         background: #245682 !important; }
-      #wrapper #inner-wrapper .main-nav #main_nav_container {
-        padding-left: 0;
-        padding-right: 0; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container #navigation ul.nav li.current-menu-ancestor a {
-          background-color: #2091cd !important; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container .current_page_item {
-          background-color: #245682; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container ul li a {
-          color: #ffffff !important; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container .dropdown-menu {
-          padding: 0;
-          background-color: #245682; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container .open > a {
-          color: #000000 !important; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container .open .dropdown-menu li a {
-          color: #ffffff !important; }
-        #wrapper #inner-wrapper .main-nav #main_nav_container .opena:hover {
-          background-color: #245682; }
     #wrapper #inner-wrapper .navbar-default {
       z-index: 100;
       border-color: transparent; }
       #wrapper #inner-wrapper .navbar-default li:hover {
         background: #245682; }
       #wrapper #inner-wrapper .navbar-default .navbar-nav {
-        margin: 0 auto; }
+        margin: 10% auto; }
       #wrapper #inner-wrapper .navbar-default .navbar-toggle {
-        border-color: transparent;
-        border-radius: 3px; }
+        border-color: transparent; }
         #wrapper #inner-wrapper .navbar-default .navbar-toggle:hover {
           background-color: #245682 !important; }
     #wrapper #inner-wrapper .sesc-home-slider {
@@ -142,61 +90,69 @@ body {
         max-width: 100%;
         float: left;
         list-style: none; }
-    #wrapper #inner-wrapper .sesc-home-main-article {
-      text-align: center; }
-      #wrapper #inner-wrapper .sesc-home-main-article h2 {
-        font-size: 2em;
-        padding: 0;
-        margin: .5em auto;
-        line-height: 1.2; }
-      #wrapper #inner-wrapper .sesc-home-main-article h3 {
+    #wrapper #inner-wrapper .sesc-slider-excerpt {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 30%;
+      background: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      text-align: center;
+      /*overflow: scroll;*/ }
+      #wrapper #inner-wrapper .sesc-slider-excerpt h1 {
+        color: #ffffff;
         font-size: 1.5em;
-        padding: 0;
-        line-height: 1.25; }
-      #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts p {
+        margin: 10% auto;
+        text-align: center;
+        margin: 2% auto;
+        padding: 1em;
+        line-height: 1.5em; }
+    #wrapper #inner-wrapper .sesc-home-post-container {
+      text-align: center;
+      margin: 20px 0; }
+      #wrapper #inner-wrapper .sesc-home-post-container h2 {
+        font-size: 2em;
+        padding: 0 .75em;
+        margin: .5em auto; }
+      #wrapper #inner-wrapper .sesc-home-post-container h3 {
+        font-size: 1.5em;
+        padding: 0 .75em; }
+      #wrapper #inner-wrapper .sesc-home-post-container img {
+        margin: .5em auto; }
+      #wrapper #inner-wrapper .sesc-home-post-container .sesc-home-posts p {
         padding: 0 6%;
         margin: 2% auto; }
-      #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts img {
+      #wrapper #inner-wrapper .sesc-home-post-container .sesc-home-posts .featured {
+        width: 100%;
+        padding: 0 6%;
+        /*margin: 0 4% 0 0;*/ }
+      #wrapper #inner-wrapper .sesc-home-post-container .sesc-home-posts img {
         max-width: 100%;
         height: auto;
         display: block;
         margin: 20px auto; }
-      #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts .featured {
-        width: 100%;
-        padding: 0 6%;
-        /*margin: 0 4% 0 0;*/ }
-      #wrapper #inner-wrapper .sesc-home-main-article .sesc-home-posts .wea-logo {
-        margin: 6% 4% 0%; }
     #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container {
       text-align: left;
-      padding: 1em 0;
-      margin: 2em 0;
-      border-top: 3px solid #2091cd; }
+      padding: 1em;
+      margin: 1em 0; }
       #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container h1 {
         color: #2091cd;
         line-height: 1em;
         font-size: 1em;
         margin: .5em auto; }
-      #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container .news-item {
-        margin: 2% auto; }
     #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
       font-size: 1.5em;
       margin: 10% 0;
       background: #f8960b;
       border-radius: 5px; }
-      #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button:hover {
-        box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25); }
       #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button a {
         color: #ffffff;
-        padding: .75em;
+        padding: 1em;
         display: block; }
     #wrapper #inner-wrapper .sesc-home-aside .sesc-home-calendar-container {
       margin: 20px auto; }
     #wrapper #inner-wrapper .sesc-call-to-action-footer {
       text-align: center; }
-      #wrapper #inner-wrapper .sesc-call-to-action-footer .row {
-        margin-left: 0;
-        margin-right: 0; }
       #wrapper #inner-wrapper .sesc-call-to-action-footer a:link {
         color: #ffffff;
         display: block;
@@ -205,8 +161,6 @@ body {
         color: #ffffff; }
       #wrapper #inner-wrapper .sesc-call-to-action-footer a:hover {
         color: #ffffff; }
-      #wrapper #inner-wrapper .sesc-call-to-action-footer .button:hover {
-        box-shadow: 2px 6px 15px -4px rgba(0, 0, 0, 0.25); }
       #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
         background: #f8960b;
         color: #ffffff;
@@ -227,175 +181,35 @@ body {
       border-top: none; }
     #wrapper #inner-wrapper .gform_title {
       display: none; }
-  #wrapper #footer {
-    border-top: none;
-    text-align: center; }
-    #wrapper #footer #sesc-footer-nav {
-      background: transparent;
-      border-radius: 0;
-      border: none; }
-      #wrapper #footer #sesc-footer-nav a:link {
-        color: #0F4880;
-        padding: .25em 1em;
-        margin: .5em;
-        display: block; }
-      #wrapper #footer #sesc-footer-nav li {
-        display: block; }
-    #wrapper #footer .sesc-footer-copyright h4 {
-      color: #000000; }
 
 /* From ARIA */
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 /* Small devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-  #wrapper #inner-wrapper {
-    border-bottom-left-radius: 3em;
-    border-bottom-right-radius: 3em; }
-    #wrapper #inner-wrapper header {
-      border-right: 3px solid #2091cd;
-      border-left: 3px solid #2091cd; }
-      #wrapper #inner-wrapper header #nomadHeader {
-        width: 100%; }
-        #wrapper #inner-wrapper header #nomadHeader .headerSocialMediaLogin .searchform {
-          width: 100%;
-          margin: 1% auto; }
-        #wrapper #inner-wrapper header #nomadHeader .sesc-home-header-title h3 {
-          margin: 1% 0 4% 12%;
-          text-align: left;
-          letter-spacing: .25em;
-          color: #0081c6; }
-    #wrapper #inner-wrapper #main_nav_container #menu-main li {
-      padding: .55em; }
-      #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
-        padding: .55em;
-        background-color: #2091cd; }
-      #wrapper #inner-wrapper #main_nav_container #menu-main li .active {
-        background-color: #245682; }
-      #wrapper #inner-wrapper #main_nav_container #menu-main li .open a:focus {
-        background-color: #245682; }
-    #wrapper #inner-wrapper #main_nav_container .dropdown-menu {
-      padding: 0;
-      background-color: #245682; }
-      #wrapper #inner-wrapper #main_nav_container .dropdown-menu lihover {
-        background-color: #2091cd; }
-    #wrapper #inner-wrapper #main_nav_container ul li a {
-      padding: .5em;
-      font-size: .75em; }
-    #wrapper #inner-wrapper .navbar {
-      border-radius: 0;
-      border: none;
-      margin-bottom: 0;
-      border-color: #2091cd;
-      border-right: 3px solid #2091cd;
-      border-left: 3px solid #2091cd; }
-    #wrapper #inner-wrapper .sesc-home-main-article {
-      border-right: 3px solid #2091cd;
-      border-left: 3px solid #2091cd; }
-    #wrapper #inner-wrapper .sesc-home-posts .featured {
-      width: 50%;
-      margin: 0 4% 0 0; }
-    #wrapper #inner-wrapper .main-nav {
-      position: relative; }
-    #wrapper #inner-wrapper #header {
-      padding-top: 20px; }
-    #wrapper #inner-wrapper .sesc-home-slider {
-      display: block;
-      margin: 2em 0 0 0; }
-      #wrapper #inner-wrapper .sesc-home-slider .carousel-inner {
-        height: 300px; }
-      #wrapper #inner-wrapper .sesc-home-slider img {
-        display: block;
-        display: block; }
-      #wrapper #inner-wrapper .sesc-home-slider .carousel-indicators {
-        left: 15%;
-        bottom: 20%; }
-      #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 30%;
-        background: rgba(0, 0, 0, 0.5);
-        height: 100%;
-        text-align: center;
-        overflow: hidden; }
-        #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
-          color: #ffffff;
-          font-size: 1.25em;
-          margin: 10% auto;
-          text-align: center;
-          margin: 2% auto;
-          padding: 1em;
-          line-height: 1.25em; }
-    #wrapper #inner-wrapper .sesc-home-post-parent-col {
-      padding-right: 0; }
-    #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
-      font-size: 1.25em; }
-    #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
-      border-left: 3px solid #2091cd;
-      border-bottom: 3px solid #2091cd; }
-    #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-admin {
-      border-bottom: 3px solid #2091cd;
-      background: rgba(83, 142, 215, 0.74); }
-    #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-families {
-      border-bottom: 3px solid #2091cd; }
-    #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-partners {
-      border-bottom: 3px solid #2091cd;
-      border-right: 3px solid #2091cd; }
-  #wrapper #footer #sesc-footer-nav li {
-    display: inline-block; } }
+  #wrapper .sesc-slider-excerpt {
+    overflow: hidden; }
+  #wrapper .sesc-home-posts .featured {
+    width: 50%;
+    margin: 0 4% 0 0; }
+  #wrapper #inner-wrapper .main-nav {
+    position: relative; }
+  #wrapper #inner-wrapper .sesc-home-slider {
+    display: block; }
+  #wrapper #inner-wrapper #header {
+    padding-top: 20px; } }
 
 /* Medium devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
-  #wrapper #inner-wrapper .sesc-home-posts {
-    margin: 1em 0;
-    border-top: 3px solid #2091cd;
-    border-right: 3px solid #2091cd;
-    border-bottom: 3px solid #2091cd;
-    border-left: 3px solid #2091cd; }
-  #wrapper #inner-wrapper #nomadHeader .headerSocialMediaLogin .searchform {
-    width: 100%; }
-  #wrapper #inner-wrapper #nomadHeader .sesc-home-header-title h3 {
-    margin: 1% 0 0 12%;
-    text-align: left; }
-  #wrapper #inner-wrapper #main_nav_container #menu-main li {
-    padding: .5em; }
-    #wrapper #inner-wrapper #main_nav_container #menu-main li:hover {
-      padding: .5em; }
-  #wrapper #inner-wrapper #main_nav_container ul li a {
-    padding: .5em 1em;
-    font-size: .95em; }
-  #wrapper #inner-wrapper .sesc-home-slider img {
-    height: 400px; }
-  #wrapper #inner-wrapper .sesc-home-slider .carousel-indicators {
-    bottom: 5%; }
-  #wrapper #inner-wrapper .sesc-home-slider .carousel-inner {
-    height: 400px; }
-  #wrapper #inner-wrapper .sesc-home-slider .sesc-slider-excerpt h1 {
-    font-size: 1.5em;
-    line-height: 1.25em; }
-  #wrapper #inner-wrapper .sesc-home-main-article h2 {
-    padding: 0 .75em; }
-  #wrapper #inner-wrapper .sesc-home-main-article h3 {
-    padding: 0 .75em; }
-  #wrapper #inner-wrapper .sesc-home-aside .sesc-home-news-post-container {
-    margin: 8% 0; }
-  #wrapper #inner-wrapper .sesc-home-aside .home-subscribe-button {
-    margin: 0 0 3%; }
-  #wrapper #inner-wrapper .sesc-home-aside .sesc-home-calendar-container {
-    margin: 0 auto 20px; }
-  #wrapper #inner-wrapper .sesc-call-to-action-footer a {
+  #wrapper .sesc-call-to-action-footer a {
     color: #ffffff;
     display: block;
     padding: 2em; }
-  #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
+  #wrapper .sesc-call-to-action-footer .sesc-footer-teachers {
     border-bottom-left-radius: 1.5em; }
-  #wrapper #inner-wrapper .sesc-call-to-action-footer .sesc-footer-partners {
-    border-bottom-right-radius: 1.5em; }
-  #wrapper #footer .sesc-footer-copyright h4 {
-    text-align: left;
-    padding-left: 3em; } }
+  #wrapper .sesc-call-to-action-footer .sesc-footer-partners {
+    border-bottom-right-radius: 1.5em; } }
 
-/* Large devices (large desktops, 1200px and up @screen-lg-min) */
+/* Large devices (large desktops, 1200px and up) */
 
 /*# sourceMappingURL=sesc_custom_styles.css.map */

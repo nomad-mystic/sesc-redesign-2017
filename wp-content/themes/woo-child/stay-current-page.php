@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Stay Current Page
+ * Template Name: Stay Current Page 
  *
  * The business page template displays your posts with a "business"-style
  * content slider at the top.
@@ -12,13 +12,6 @@ global $woo_options, $wp_query;
 get_header();
 
 $page_template = woo_get_page_template();
-
-/**
-* @author Keith Murphy - nomad - nomadmystics@gmail.com
-*/
-// require_once( 'lib/sesc_posts.php' );
-// $sesc_posts = new SESCPosts();
-
 ?>
  <!-- #content Starts -->
 	<?php woo_content_before(); ?>
@@ -35,26 +28,16 @@ $page_template = woo_get_page_template();
             <section id="main"  class="stayCurrent">
 <?php
 	woo_loop_before();
-
+	
 		if (have_posts()) { $count = 0;
 			while (have_posts()) { the_post(); $count++;
 				woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
 			}
 		}
-
+		
 		// Restore original Post Data
 		wp_reset_postdata();
-		woo_loop_after();
-
-		/**
-		* @author Keith Murphy - nomad - nomadmystics@gmail.com
-		* @todo Remove plugin asnd do this manually
-		*/
-		// if ( class_exists( 'SESCPosts' ) ) {
-		//    $sesc_posts->sesc_build_home_news_widget( 'post', 'home-news-widget', '4');
-		// }
-
-
+	woo_loop_after();
 ?>
             </section><!-- /#main -->
             <?php woo_main_after(); ?>

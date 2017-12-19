@@ -1,127 +1,142 @@
 'use strict';
 
 /**
-* @author Keith Murphy - nomad - nomadmystics@gmail.com
+* @author Keith Murphy
 * @summary Javascript functions for the home page
 */
 
 /**
-* @author Keith Murphy - nomad - nomadmystics@gmail.com
 * @summary Build the home page slider
 */
 
-var sescBuildHomePageSlider = function ($) {
-    var _this = this;
+var sescBuildHomePageSlider = function () {
 
-    // DOM Pieces
-    var slides = window.document.querySelectorAll('.sesc-slide-item');
-    var slidesParentContainer = window.document.querySelector('.carousel-inner');
+    // var computedStyle = document.defaultView.getComputedStyle(liItems[i].childNodes[0], null);
+    // imageWidth = computedStyle.width;
 
-    /**
-    * @summary All all initial functions here
-    */
-    var init = function init() {
+    var sescFunctions = {
+        slider: function slider(ul, imageWidth, imageNumber) {
+            var currentImage = 0;
+            this.animate({
+                delay: 17,
+                duration: 3000,
+                delta: function delta(p) {
+                    return Math.max(0, -1 + 2 * p);
+                },
+                step: function step(delta) {
+                    ul.style.left = '-' + parseInt(currentImage * imageWidth + delta * imageWidth) + 'px';
+                },
+                callback: function callback() {
+                    currentImage++;
+                    // if it doesn’t slied to the last image, keep sliding
+                    if (currentImage < imageNumber - 1) {
+                        sescFunctions.slider(ul);
+                    }
+                    // if current image it’s the last one, it slides back to the first one
+                    else {
+                            var leftPosition = (imageNumber - 1) * imageWidth;
+                            // after 2 seconds, call the goBack function to slide to the first image
+                            setTimeout(function () {
+                                sescFunctions.goBack(leftPosition, currentImage);
+                            }, 2000);
+                            setTimeout(function () {
+                                sescFunctions.slider(ul);
+                            }, 4000);
+                        }
+                }
+            });
+        },
+        init: function init() {
+            // ul = document.getElementById('image_slider');
+            // li_tems = ul.children;
+            // imageNumber = liItems.length;
+            // imageWidth = liItems[0].children[0].offsetWidth;
+            // // set ul’s width as the total width of all images in image slider.
+            // ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
+            // this.slider(ul);
+            var ul;
+            var liItems;
+            var imageWidth;
+            var imageNumber;
+            var prev, next;
+            var sliderWidth = 0;
+            var currentPostion = 0;
 
-        addClasses();
-        changeAtts();
-        jqueryFunctions();
-        // keepImgRatio();
-    };
+            var ul = document.getElementById('image_slider');
+            console.log(ul);
+            var liItems = ul.children;
 
-    /**
-    * @summary Add classes here
-    */
-    var addClasses = function addClasses() {
-
-        // Slide 0 needs to have active if the slider is going to function properly
-        slides[0].classList.add('active');
-    };
-
-    var keepImgRatio = function keepImgRatio() {
-
-        // console.log(slidesParentContainer);
-        var refContainerWidth = slidesParentContainer.offsetWidth;
-        var refContainerHeight = 400;
-        var refRatio = refContainerWidth / refContainerHeight;
-
-        for (var i = 0; i < slides.length; i++) {
-
-            var imgHeight = slides[i].children[0].children[0].offsetHeight;
-            var imgWidth = slides[i].children[0].children[0].offsetWidth;
-
-            console.log(slides[1]);
-            console.log(slides[i].children[0].children[0].offsetWidth);
-            console.log(slides[i].children[0].children[0].offsetHeight);
-
-            if (imgW / imgH < refRatio) {
-                $(_this).addClass("portrait");
-            } else {
-                $(_this).addClass("landscape");
+            for (var i = 0; i < liItems.length; i++) {
+                // nodeType == 1 means the node is an element.
+                // in this way it's a cross-browser way.
+                //if (li_items[i].nodeType == 1){
+                //clietWidth and width???
+                imageWidth = liItems[i].childNodes[0].clientWidth;
+                sliderWidth += imageWidth;
+                imageNumber++;
             }
-        }
-    };
+            //
+            ul.style.width = parseInt(sliderWidth) + 'px';
+            this.slider(ul, imageWidth, imageNumber);
+        },
+        goBack: function goBack(leftPosition, currentImage) {
+            currentImage = 0;
+            var id = setInterval(function () {
+                if (leftPosition >= 0) {
+                    ul.style.left = '-' + parseInt(leftPosition) + 'px';
+                    leftPosition -= imageWidth / 10;
+                } else {
+                    clearInterval(id);
+                }
+            }, 17);
+        },
+        //generic animate function
+        animate: function animate(opts) {
+            var start = new Date();
+            var id = setInterval(function () {
+                var timePassed = new Date() - start;
+                var progress = timePassed / opts.duration;
+                if (progress > 1) {
+                    progress = 1;
+                }
+                var delta = opts.delta(progress);
+                opts.step(delta);
+                if (progress == 1) {
+                    clearInterval(id);
+                    opts.callback();
+                }
+            }, opts.dalay || 17);
+        },
+        slideTo: function slideTo(imageToGo) {
 
-    /**
-    * @todo on screen size change keepImgRatio
-    */
-    var jqueryFunctions = function() {
+            var direction;
+            var numOfImageToGo = Math.abs(imageToGo - currentImage);
+            // slide toward left
 
-        $(".nav a").on("click", function(event) {
-            var target = event.currentTarget;
-            var windowWidth = window.innerWidth;
-
-            $(".nav").find(".active").removeClass("active");
-            $(this).parent().addClass("active");
-
-            console.log(windowWidth);
-            if ('767' > windowWidth && target.classList.contains('active')) {
-
-                target.style.backgroundColor = '#245682';
-                // target.style.color = '#fffffff';
-                target.setAttribute('style', ' #ffffff !important');
-
-            }
-
-       });
-
-
-
-        $('.carousel').carousel({
-            interval: 4000
-        });
-
-        /**
-        * @todo When slide changes keepImgRatio
-        */
-        $('.sesc-home-slider').on('slide.bs.carousel', function () {
-            // keepImgRatio();
-        });
-    }
-
-
-
-    var changeAtts = function() {
-
-        var wrapper_div = window.document.getElementById('wrapper');
-        var location = window.location.pathname;
-        var htmlElement = window.document.documentElement;
-
-        if ('/home-page-redesign/' === location) {
-
-            htmlElement.setAttribute('style', 'margin-top: 0 !important');
-            // htmlElement.style.marginTop = '';
-            wrapper.setAttribute('style', 'max-width: 1220px !important');
-            // wrapper.style.maxWidth = '1220px !important';
-
+            direction = currentImage > imageToGo ? 1 : -1;
+            currentPostion = -1 * currentImage * imageWidth;
+            var opts = {
+                duration: 1000,
+                delta: function delta(p) {
+                    return p;
+                },
+                step: function step(delta) {
+                    ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
+                },
+                callback: function callback() {
+                    currentImage = imageToGo;
+                }
+            };
+            this.animate(opts);
         }
 
-    };
+    }; // end functions
 
 
     return {
-        init: init
+        sescFunctions: sescFunctions
     };
+}();
 
-}(jQuery);
-
-sescBuildHomePageSlider.init();
+sescBuildHomePageSlider.sescFunctions.init();
+// sescBuildHomePageSlider.sescFunctions.init();

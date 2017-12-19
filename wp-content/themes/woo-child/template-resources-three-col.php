@@ -58,6 +58,20 @@ $page_template = woo_get_page_template();
 		</div><!-- /#main-sidebar-container -->
 		<!---Added by nomad for widget area-->
 
+		<?php
+		wp_nav_menu( array( 'theme_location' => 'resources_menu', 'container_class' => 'primary-sidebar widget-area leftColNav', 'container_id' => 'resourceSidebarNav' ) );
+		// wp_nav_menu([
+		// 	'container' =>false,
+		// 	'menu_class' => 'nav',
+		// 	'echo' => true,
+		// 	'before' => '',
+		// 	'after' => '',
+		// 	'link_before' => '',
+		// 	'link_after' => '',
+		// 	'depth' => 0,
+		// 	'walker' => new SESC_menus()
+		// ]);
+		?>
 		<?php if ( is_active_sidebar( 'resource_page' ) ) : ?>
 			<aside id="resourceSidebarNav" class="primary-sidebar widget-area leftColNav" role="complementary">
 				<?php dynamic_sidebar( 'resource_page' ); ?>
