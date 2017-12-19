@@ -19,6 +19,8 @@
 ### WordPress template
 *.log
 wp-config.php
+wp-admin/
+wp-includes/
 wp-content/advanced-cache.php
 wp-content/backup-db/
 wp-content/backups/
@@ -26,6 +28,19 @@ wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins" directory
+# "plugins" directory
+# "themes" directory
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+!wp-content/assets/
+!wp-content/css/
+!wp-content/js/
+!wp-content/fonts/
+
 wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 
@@ -218,3 +233,29 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.well-known/
+cgi-bin/
+Would skip repository sesc-redesign-2017/
+Would skip repository wp-content/themes/canvas/functions
+wp-content/uploads
+wp-content/multiverso-files
+wp-content/upgrade
+wp-content/cache
+wp-content/wflogs
+wp-content/updraft
+wp-content/w3tc-config
+wp-snapshots/
+index.php
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+!/wp-content/themes/index.php
