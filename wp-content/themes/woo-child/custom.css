@@ -544,11 +544,11 @@ p {
 	margin: 8% 0 0 0;
 }
 /*---removing random p--*/
-#ui-accordion-2-header-19,
-#ui-accordion-3-header-4,
-#ui-accordion-1-header-2 {
-	display: none;
-}
+/*#ui-accordion-2-header-19,*/
+/*#ui-accordion-3-header-4,*/
+/*#ui-accordion-1-header-2 {*/
+	/*display: none;*/
+/*}*/
 
 /*-----cadrePage----*/
 /*-----cadreFileCabinetPageWidget---*/
