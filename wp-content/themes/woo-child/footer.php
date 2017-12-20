@@ -72,7 +72,7 @@ if ( $site_permalink != 'http://specialeducationsupportcenter.org/home-page-rede
 		 	}
 
 			?>
-		</div>!
+		</div>
 	</footer>
 
 	<?php

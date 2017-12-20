@@ -13,8 +13,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
 * @summary Initialize scritps here
 */
-
-
 /**
 * @summary Initialize all JS here
 */

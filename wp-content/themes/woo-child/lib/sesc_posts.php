@@ -87,7 +87,7 @@ class SESCPosts {
                 <div id="sesc-home-slider" class="carousel slide" data-ride="carousel" data-interval="100000">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#sesc-home-slider" data-// padding: 2em;slide-to="0" class="active"></li>
+                        <li data-target="#sesc-home-slider" data-slide-to="0" class="active"></li>
                         <li data-target="#sesc-home-slider" data-slide-to="1"></li>
                         <li data-target="#sesc-home-slider" data-slide-to="2"></li>
                     </ol>
@@ -118,7 +118,7 @@ class SESCPosts {
                         echo '</div>';
 
             		}
-                    ?>CtG Sta
+                    ?>
                     </div><!-- end carousel-inner-->
                 </div><!-- end carousel-->
             </div><!--end sesc-slider-container-->

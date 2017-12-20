@@ -1,135 +1,82 @@
 /**
- * @author Keith Murphy
+ * @author Keith Murphy - nomad - nomadmystics@gmail.com
  * @summary Javascript functions for the home page
  */
 
 /**
+ * @author Keith Murphy - nomad - nomadmystics@gmail.com
  * @summary Build the home page slider
  */
 
-var sescBuildHomePageSlider = (() => {
+var sescBuildHomePageSlider = (function($) {
 
 
-	// var computedStyle = document.defaultView.getComputedStyle(liItems[i].childNodes[0], null);
-	// imageWidth = computedStyle.width;
+	// DOM Pieces
+	var slides = window.document.querySelectorAll('.sesc-slide-item');
+	var slidesParentContainer = window.document.querySelector('.carousel-inner');
 
-	var sescFunctions = {
-		slider: function(ul, imageWidth, imageNumber) {
-			var currentImage = 0;
-			this.animate({
-				delay:17,
-				duration: 3000,
-				delta: function(p) { return Math.max(0, -1 + 2 * p) },
-				step: function(delta) {
-					ul.style.left = '-' + parseInt(currentImage * imageWidth + delta * imageWidth) + 'px';
-				},
-				callback: function() {
-					currentImage++;
-					// if it doesn’t slied to the last image, keep sliding
-					if (currentImage < imageNumber - 1) {
-						sescFunctions.slider(ul);
-					}
-					// if current image it’s the last one, it slides back to the first one
-					else {
-						var leftPosition = (imageNumber - 1) * imageWidth;
-						// after 2 seconds, call the goBack function to slide to the first image
-						setTimeout(function(){sescFunctions.goBack(leftPosition, currentImage)},2000);
-						setTimeout(function(){sescFunctions.slider(ul)}, 4000);
-					}
-				}
-			});
-		},
-		init: function() {
-			// ul = document.getElementById('image_slider');
-			// li_tems = ul.children;
-			// imageNumber = liItems.length;
-			// imageWidth = liItems[0].children[0].offsetWidth;
-			// // set ul’s width as the total width of all images in image slider.
-			// ul.style.width = parseInt(imageWidth * imageNumber) + 'px';
-			// this.slider(ul);
-			var ul;
-			var liItems;
-			var imageWidth;
-			var imageNumber;
-			var prev, next;
-			var sliderWidth = 0;
-			var currentPostion = 0;
+	/**
+	 * @summary All all initial functions here
+	 */
+	var init = () => {
 
-			var ul = document.getElementById('image_slider');
-			console.log(ul);
-			var liItems = ul.children;
+		addClasses();
+		// keepImgRatio();
+	};
 
-			for (var i = 0; i < liItems.length; i++) {
-				// nodeType == 1 means the node is an element.
-				// in this way it's a cross-browser way.
-				//if (li_items[i].nodeType == 1){
-				//clietWidth and width???
-				imageWidth = liItems[i].childNodes[0].clientWidth;
-				sliderWidth += imageWidth;
-				imageNumber++;
+	/**
+	 * @summary Add classes here
+	 */
+	var addClasses = function() {
+
+		// Slide 0 needs to have active if the slider is going to function properly
+		slides[0].classList.add('active');
+
+	};
+
+	var keepImgRatio = () => {
+
+		// console.log(slidesParentContainer);
+		var refContainerWidth = slidesParentContainer.offsetWidth;
+		var refContainerHeight = 400;
+		var refRatio = refContainerWidth / refContainerHeight
+
+		for (var i =0; i < slides.length; i++) {
+
+			let imgHeight = slides[i].children[0].children[0].offsetHeight;
+			let imgWidth = slides[i].children[0].children[0].offsetWidth;
+
+			console.log(slides[1]);
+			console.log(slides[i].children[0].children[0].offsetWidth);
+			console.log(slides[i].children[0].children[0].offsetHeight);
+
+
+			if ( (imgW/imgH) < refRatio ) {
+				$(this).addClass("portrait");
+			} else {
+				$(this).addClass("landscape");
 			}
-			//
-			ul.style.width = parseInt(sliderWidth) + 'px';
-			this.slider(ul, imageWidth, imageNumber);
-		},
-		goBack: function(leftPosition, currentImage) {
-			currentImage = 0;
-			var id = setInterval(function() {
-				if (leftPosition >= 0) {
-					ul.style.left = '-' + parseInt(leftPosition) + 'px';
-					leftPosition -= imageWidth / 10;
-				}
-				else {
-					clearInterval(id);
-				}
-			}, 17);
-		},
-		//generic animate function
-		animate: function(opts) {
-			var start = new Date;
-			var id = setInterval(function(){
-				var timePassed = new Date - start;
-				var progress = timePassed / opts.duration
-				if(progress > 1){
-					progress = 1;
-				}
-				var delta = opts.delta(progress);
-				opts.step(delta);
-				if (progress == 1){
-					clearInterval(id);
-					opts.callback();
-				}
-			}, opts.dalay || 17);
-		},
-		slideTo: function(imageToGo) {
-
-			var direction;
-			var numOfImageToGo = Math.abs(imageToGo - currentImage);
-			// slide toward left
-
-			direction = currentImage > imageToGo ? 1 : -1;
-			currentPostion = -1 * currentImage * imageWidth;
-			var opts = {
-				duration:1000,
-				delta:function(p){return p;},
-				step:function(delta){
-					ul.style.left = parseInt(currentPostion + direction * delta * imageWidth * numOfImageToGo) + 'px';
-				},
-				callback: function() { currentImage = imageToGo; }
-			};
-			this.animate(opts);
 		}
 
 
+	};
 
-	}; // end functions
+	/**
+	 * @todo on screen size change keepImgRatio
+	 */
 
+	/**
+	 * @todo When slide changes keepImgRatio
+	 */
+	// $('.sesc-home-slider').on('slide.bs.carousel', function () {
+	//     keepImgRatio();
+	// });
 
 	return {
-		sescFunctions: sescFunctions
-	}
+		init: init
+	};
 
-})();
 
-sescBuildHomePageSlider.sescFunctions.init();
-// sescBuildHomePageSlider.sescFunctions.init();
+})(jQuery);
+
+sescBuildHomePageSlider.init();

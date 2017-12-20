@@ -16,10 +16,8 @@ class SESC_enqueue {
 
     public function sesc_enqueue_scripts_and_styles() {
 
-
         // css
         wp_enqueue_style( 'bootstrap_library_css', get_stylesheet_directory_uri() . '/vendor/bootstrap.min.css', '3.3.7' );
-        // wp_enqueue_style( 'bootstrap_libary-css', get_stylesheet_directory_uri() . '/vendor/bootstrap.min.css', '3.3.7' );
         wp_enqueue_style( 'bootstrap_library_css' );
 
         // javascript
@@ -30,18 +28,18 @@ class SESC_enqueue {
 		wp_register_script( 'jquery', '/wp-includes/js/jquery/jquery.js', [], '1.3.2', true );
         wp_register_script( 'jquery-ui', get_stylesheet_directory_uri() . '/vendor/jquery-ui.min.js', ['jquery'], '', true );
 
-        if ( !wp_script_is('jquery') ) {
+//        if ( !wp_script_is('jquery') ) {
 
             wp_enqueue_script( 'jquery' );
 
-        }
-
-        if ( !wp_script_is('jquery-ui') ) {
+//        }
+//
+//        if ( !wp_script_is('jquery-ui') ) {
 
             wp_enqueue_script( 'jquery-ui' );
 
 
-        }
+//        }
 
         /**
         * @todo Turn this on when approved
@@ -65,11 +63,11 @@ class SESC_enqueue {
         wp_enqueue_script( 'bootstrap_library_js' );
 
         wp_register_script( 'sesc_custom_scripts' , get_stylesheet_directory_uri() . '/build/js/scripts.js', ['jquery', 'jquery-ui'], '', true );
+	    wp_enqueue_script( 'sesc_custom_scripts' );
 
         wp_register_script( 'aria_walker_scripts' , get_stylesheet_directory_uri() . '/vendor/aria_walker.js', ['jquery', 'jquery-ui'], '', true );
         wp_enqueue_script( 'aria_walker_scripts' );
 
-        wp_enqueue_script( 'sesc_custom_scripts' );
 
         // if ( get_permalink() === 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
         //
@@ -110,7 +108,7 @@ class SESC_enqueue {
         /**
         * @author nomadmystics@gmail.com
         * @summary only load these styles if the page is home for now 4-6-2017
-        * @todo Turn on for home page aftert the changes are made live
+        * @todo Turn on for home page after the changes are made live
         */
 //        if ( get_permalink() == 'http://localhost/sesc/' || get_permalink() === 'http://specialeducationsupportcenter.org/home-page-redesign/' ) {
 
