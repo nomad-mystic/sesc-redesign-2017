@@ -6,7 +6,7 @@
 */
 
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -20,8 +20,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -32,7 +32,7 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -116,7 +116,7 @@ a:active {
         padding: .5em;
         text-indent: 5%;
         border-radius: 2px;
-    
+
 }*/
 .resourcePageLinkButton {
     background-color: #1E9C8B;
@@ -162,7 +162,7 @@ a:active {
 .pagesButton:hover {
     	box-shadow: 0px 2px 2px 0px rgba(0,0,0,.10);
 	background: #0777B3;
-	
+
 }
 .pagesButton a {
 	color: #fff;
@@ -220,7 +220,7 @@ a:active {
 [data-icon]:before {
   font-family: FontAwesome;
   content: attr(data-icon);
-  speak: none; 
+  speak: none;
 }
 /*-----This is for the left side nav---*/
 .navIconLevelOne {
@@ -247,7 +247,7 @@ a:active {
     font-style: normal;
 }
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
     font-family: Flaticon;
     font-size: inherit;
     font-style: normal;
@@ -295,10 +295,10 @@ p {
     	line-height: 1.25em;
 }
 .entry-content blockquote {
-	padding: 0; 
+	padding: 0;
 	margin: 2% auto;
 	font-size: inherit;
-	border: none; 
+	border: none;
 }
 .accordion h3 {
 	background-color: #43A2D5;
@@ -385,19 +385,16 @@ p {
 }
 #header .headerh1 {
    	margin: 0 1% 0;
-    	width: 55%;
+    width: 55%;
 }
 #header .headerh1 h1 {
     	font-size: 3.75em;
     	font-family: signPainter, Arial, Helvetica, sans-serf;
     	margin: 2% 0 0 2%;
-} 
+}
 #header .headerh1 h3 {
-    	margin: 0 0 0 5%;
-    	font-size: 1.30em;
-    	font-style: italic;
-    	font-family: initial;
-} 
+    	
+}
 #header .headerSocialMediaLogin {
     width: 25%;
     margin: 2% 0 0 0;
@@ -412,7 +409,7 @@ p {
     	float: left;
     	font-size: 2.5em;
     	margin: -3% 0 0 0;
-	
+
 }
 #header .headerSocialMediaLogin > ul li {
     display: inline-block;
@@ -477,7 +474,7 @@ p {
     	width: 23%;
     	margin: 4% 1%;
 	position: relative;
-	height: 490px; 
+	height: 490px;
 }
 .flip-container img {
     display: block;
@@ -609,15 +606,15 @@ p {
     	margin: 0 auto;
 }
 .contactIMGArray .contactPictures {
-	float: left; 
+	float: left;
 	width: 17%;
-	margin: 1.5%; 
+	margin: 1.5%;
 }
 .contactIMGArray p {
 	text-align: center;
     	color: #fff;
-	    
-}	
+
+}
 .contactIMGArray img {
 	padding: 0;
 	background: none;
@@ -644,7 +641,7 @@ p {
     	font-family: signPainter, Arial, Helvetica, sans-serf;
 }
 .projectsPageParentContent p {
-    font-size: 1.25em; 
+    font-size: 1.25em;
     padding: 2%;
     background: rgba(0,0,0,.1);
     border-radius: 2px;
@@ -660,21 +657,21 @@ p {
     width: 100%;
         margin: 0 auto;
         display: block;
-} 
+}
 #resourcesPage .resourcesPageInnerContent h5{
     	text-align: center;
         font-size: 1.25em;
     	color: #fff;
 	border-top: rgba(255,255,255,.5) solid 2px;
     	padding-top: 5%;
-} 
+}
 #resourcesPage .resourcesPageInnerContent .floatLeft {
     	width: 30%;
         margin: 5% 1%;
     	background: #2091CD;
    	border-radius: 4px;
 
-} 
+}
 #resourcesPage .resourcesPageInnerContent .pagesButton {
 	margin: 2% auto 5%;
 }
@@ -959,7 +956,7 @@ p {
     	content: "\f212";
     	padding-right: 5%;
     	vertical-align: middle;
-} 
+}
 #instructionalPageNav > div:nth-child(7) > a > h4:before {
 	font-family: FontAwesome;
     	content: "\f007";
@@ -1016,7 +1013,7 @@ p {
     	font-size: .75em;
 }
 article.type-page {
-	
+
 }
 #formPage .gform_title {
 	margin: 4% auto 2%;
@@ -1027,7 +1024,7 @@ article.type-page {
     	border-radius: 2px;
 }
 .gform_description {
-	
+
 }
 .gform_body {
 	border: rgba(0,0,0,.10) solid 4px;
@@ -1118,7 +1115,7 @@ article.type-page {
     	background: rgba(0,0,0,.05);
     	border-radius: 0 0 2px 2px;
     	font-size: 1.25em;
-} 
+}
 .resourcePostPage .entry-content {
        	margin: 2% auto;
     	border: solid rgba(0,0,0,.10) 4px;
@@ -1204,7 +1201,7 @@ article.type-page {
     	content: "\f1ea";
 	padding-right: 5%;
         vertical-align: middle;
-    	
+
 }
 #stayCurrentNav > div > div > div.stayCurrentPageFirstH4 > a > h4:before {
 	font-family: FontAwesome;
@@ -1412,7 +1409,7 @@ body.sensei #post-entries .nav-next a {
     	padding: 1em;
 }
 /* These are for the lesson links in the individual course pages.*/
-body.sensei section.course-lessons > header > h2{ 
+body.sensei section.course-lessons > header > h2{
 	margin: 4% auto 2%;
     	background-color: #F58426;
     	color: #fff;
@@ -1548,14 +1545,14 @@ body.sensei .type-quiz {
 body.sensei .type-quiz .lesson-meta {
 	background: #fff;
 	border: solid rgba(0,0,0,.10) 2px;
-}	
+}
 /*----Buddy Press----*/
 #buddypress a.button {
 	background: #2091CD !important;
 }
 #buddypress a.button:hover {
 	color: #2091CD !important;
-	background: #ededed !important; 
+	background: #ededed !important;
 }
 #buddypress .standard-form div.submit {
 	padding: .5em;
@@ -1566,11 +1563,11 @@ body.sensei .type-quiz .lesson-meta {
 }
 #buddypress input[type='submit'] {
 	color: #2091CD !important;
-	background: #ededed !important; 
+	background: #ededed !important;
 }
 #buddypress input[name="ac_form_submit"] {
 	color: #2091CD !important;
-	background: #ededed !important; 
+	background: #ededed !important;
 }
 /*--------------widgets-*/
 /*----------------------------custom widgets-*/
@@ -1588,12 +1585,12 @@ body.sensei .type-quiz .lesson-meta {
         font-size: 1em;
         margin: .25em 0;
     background: #fff;
-    border-radius: 2px; 
+    border-radius: 2px;
     transition: all .25s ease;
 }
 .leftColNav h4:hover {
     background: #2091cd;
-    color: #fff;    
+    color: #fff;
 }
 .navDivLevelTwoContent {
 	margin-left: 5%;
@@ -1607,7 +1604,7 @@ body.sensei .type-quiz .lesson-meta {
     margin: 2% 0 2% 3%;
     border-radius: 2px;
     transition: all .25s ease
-    
+
 }
 .leftColNav .navDivLevelTwoItem:hover {
     background: #2091cd;
@@ -1837,7 +1834,7 @@ body.sensei .type-quiz .lesson-meta {
 	}
 	#main {
 		width: 100%;
-    		
+
 	}
 	.flip-container {
 		width: 45%;
@@ -1856,15 +1853,15 @@ body.sensei .type-quiz .lesson-meta {
 	}
 }/*-----end max-width 980----*/
 /*-----for really small screens----*/
-@media only screen 
-  and (min-device-width: 320px) 
+@media only screen
+  and (min-device-width: 320px)
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2) {
 	.flip-container {
 		width: 100%;
     		margin: 2% auto;
 	}
-} 
+}
 @media only screen and (min-width: 1300px) {
 	.flip-container {
 		height: 550px;

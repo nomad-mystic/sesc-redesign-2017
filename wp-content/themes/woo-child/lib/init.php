@@ -12,18 +12,23 @@ class SESC_init_functions {
         add_action( 'init', [ $this, 'resources_custom_post' ] );
     }
 
-    /*------This is going to be the news Custom Post Type------*/
+    /**
+    * @author Keith Murphy - nomad - nomadmystics@gamil.com
+    * @summary Add News posts to the dashboard
+    */
     public function news_custom_post() {
         $args = [
             'public' => true,
             'label'  => 'News',
-            'supports'  => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+            'supports'  => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ],
             'show_ui' => true,
             'publicly_queryable' => true,
-            'taxonomies' => array('category', 'post_tag'),
-            'rewrite' => array( 'slug' => 'news' )
+            'taxonomies' => ['category', 'post_tag'],
+            'rewrite' => [ 'slug' => 'news' ]
         ];
+
         register_post_type('news', $args);
+
     }
 
     /*---------------This for the resources custom post type----*/
@@ -52,8 +57,8 @@ class SESC_init_functions {
             'label'               => __( 'Resource', 'text_domain' ),
       		'description'         => __( 'resources_custom_post', 'text_domain' ),
       		'labels'              => $labels,
-      		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
-      		'taxonomies'          => array( 'category', 'post_tag' ),
+      		'supports'            => [ 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ],
+      		'taxonomies'          => [ 'category', 'post_tag' ],
       		'hierarchical'        => true,
       		'public'              => true,
       		'show_ui'             => true,
@@ -70,10 +75,4 @@ class SESC_init_functions {
 
       	register_post_type( 'resources_post', $args );
     }
-
-    /**
-    * @author
-    */
-
-
 }

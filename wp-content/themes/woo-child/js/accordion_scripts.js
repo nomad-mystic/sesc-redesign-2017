@@ -1,20 +1,22 @@
 
 /**
- * @author nomadmystics@gmail.com
- * @summary Build All of the accordions here and render in main.js
- */
+* @author nomadmystics@gmail.com
+* @summary Build All of the accordions here and render in main.js
+*/
 
 
 let sesc_accordion_scripts = (($) => {
 
-	var init = function() {
-		console.log('testing import');
+    var init = function() {
+        console.log('testing import');
 
-	};
+    };
 
-	return {
-		init: init
-	};
+
+
+    return {
+        init: init
+    };
 
 })(jQuery);
 
