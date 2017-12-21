@@ -31,6 +31,28 @@ class SESCPosts {
         return $args;
     }
 
+
+    /**
+     * @author Keith Murphy - nomad - nomadmystics@gmail.com
+     * @summary Factory for WP_QUERY global
+     * @param string post_type 'post' - Type of post ie post, resources_post
+     * @param string category_name 'home-post' - Type of post ie resources-families-post
+     * @param string $number  - Number of posts
+    */
+
+    public function sesc_build_our_team( $post_type, $category_name, $number = '-1' ) {
+
+        $sesc_out_team_args = $this->sesc_posts_factory( $post_type, $category_name, $number  );
+        $sesc_our_team_query = new WP_Query( $sesc_out_team_args );
+
+
+
+
+
+    }
+
+
+
     /**
     * @author Keith Murphy - nomad - nomadmystics@gmail.com
     * @summary Builds HTMl for posts with home category 'home-post'
@@ -41,7 +63,7 @@ class SESCPosts {
 
     public function sesc_build_home_posts( $post_type, $category_name, $number = '-1') {
         // The Query
-        $sesc_home_posts_args = $this->sesc_posts_factory($post_type, $category_name, $number);
+        $sesc_home_posts_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
         $sesc_home_posts_query = new WP_Query( $sesc_home_posts_args );
 
 		// The Loop

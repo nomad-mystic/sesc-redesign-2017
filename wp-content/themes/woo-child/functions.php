@@ -12,6 +12,7 @@ require_once( 'lib/enqueue_assets.php' );
 require_once( 'lib/sensei_mods.php' );
 require_once( 'lib/sesc_misc.php' );
 require_once( 'lib/sesc_menus.php' );
+require_once( 'lib/sesc_custom_taxonomy.php');
 require_once( 'lib/sesc_custom_posts.php');
 // Check if classes exist
 // Not this
@@ -50,11 +51,15 @@ if ( class_exists( 'SESC_menus' ) ) {
     $SESC_menus->init();
 }
 
+if ( class_exists( 'SESC_custom_taxonomy' ) ) {
+	$SESC_custom_taxonomy = new SESC_custom_taxonomy();
+	$SESC_custom_taxonomy->init();
+}
+
 if ( class_exists( 'SESC_custom_posts' ) ) {
 	$SESC_custom_posts = new SESC_custom_posts();
 	$SESC_custom_posts->init();
 }
-
 
 /////This is for removing register from the Woothemes Sensei my courses page
 // global $woothemes_sensei;
