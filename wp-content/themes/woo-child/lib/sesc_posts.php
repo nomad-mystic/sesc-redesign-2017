@@ -4,10 +4,10 @@ global $wp_query;
 
 class SESCPosts {
 
-
     public function init() {
 
     }
+
 
     /**
      * @author Keith Murphy - nomad - nomadmystics@gmail.com
@@ -18,6 +18,7 @@ class SESCPosts {
      * @param string $menu_order  - The order posts will be desplay
      * @return array $args
     */
+
     public function sesc_posts_factory( $post_type = 'post', $category_name = null, $number = '3', $menu_order = 'menu_order title') {
         // WP_Query arguments
 		$args = [
@@ -27,6 +28,8 @@ class SESCPosts {
 			'orderby'                => $menu_order,
 			'posts_per_page'         => $number
 		];
+
+
 
         return $args;
     }
@@ -40,17 +43,88 @@ class SESCPosts {
      * @param string $number  - Number of posts
     */
 
-    public function sesc_build_our_team( $post_type, $category_name, $number = '-1' ) {
+    public function sesc_build_our_team_posts( $post_type, $category_name, $number = '-1' ) {
 
-        $sesc_out_team_args = $this->sesc_posts_factory( $post_type, $category_name, $number  );
+        $sesc_out_team_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
         $sesc_our_team_query = new WP_Query( $sesc_out_team_args );
+//        var_dump($sesc_our_team_query);
+//        $post_meta = get_post_meta();
 
+	    echo '    <h4>WEA Staff</h4>';
+	    echo '    <div class="accordion">';
 
+	    // The Loop
+	    if ( $sesc_our_team_query->have_posts() ) {
+//	        var_dump('has posts');
+		    while ( $sesc_our_team_query->have_posts() ) {
 
+			    $sesc_our_team_query->the_post();
+                $id = get_the_ID();
+                $user_id = null;
+                $title = get_the_title($id);
+			    $byline = '';
+			    $email = '';
+			    $avatar = '';
 
+                // Need to get an email and byline from the post
+			    $metadata = get_post_meta( $id );
 
+                // Get email from meta for getting the user information
+
+                if ( $metadata['Email'] !== null ) {
+	                $email = $metadata['Email'][0];
+                }
+
+                // Get byline meta
+                if ( $metadata['Byline'] !== null ) {
+	                $byline = $metadata['Byline'][0];
+                }
+
+                // Get the users object so we can use the ID
+                $user = get_user_by(  'email', $email );
+
+                if ( $user !== null ) {
+	                $user_id = $user->ID;
+                }
+
+                // Get the user Avatar
+                // @todo If user doesn't have an Avatar use featured image
+//                $author_id = get_the_author_meta('ID', $user_id);
+                $avatar = get_avatar_url( $email );
+
+                // Get the users bio information
+                $user_description = get_the_author_meta('description', $user_id );
+
+			    echo '<pre>';
+			    var_dump($metadata);
+//			    var_dump($email);
+			    var_dump($user_id);
+//			    var_dump($user_description);
+			    var_dump($avatar);
+			    echo '</pre>';
+
+			    // If the category is other then null
+
+			    // Build the HTML here
+                echo "       <h3>{$title} {$byline}</h3>";
+			    echo '        <div>';
+                echo "            <img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"cadre-molly\" width=\"250\" height=\"286\" />";
+                echo "            <p>{$user_description}</p>";
+                echo '            <div class="clearBoth"></div>';
+                echo '          </div>';
+
+		    }
+		    wp_reset_postdata();
+
+	    } else {
+
+		    echo '<div class="entry-content">';
+		    echo '  <h1>Sorry! No Posts Found.</h1>';
+		    echo '</div>';
+
+	    }
+	    echo '    </div><!--end accordion-->';
     }
-
 
 
     /**

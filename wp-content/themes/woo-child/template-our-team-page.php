@@ -14,7 +14,7 @@ require_once( __DIR__ . '/lib/sesc_posts.php');
 
 if ( class_exists('SESCPosts' ) ) {
 
-    $SESCPosts = new SESCPosts();
+	$sesc_posts = new SESCPosts();
 
 }
 
@@ -36,19 +36,27 @@ $page_template = woo_get_page_template();
 			<?php if ( ( isset( $woo_options['woo_slider_biz'] ) && 'true' == $woo_options['woo_slider_biz'] ) && ( isset( $woo_options['woo_slider_biz_full'] ) && 'false' == $woo_options['woo_slider_biz_full'] ) ) { $saved = $wp_query; woo_slider_biz(); $wp_query = $saved; } ?>
 
             <section id="main">
+                <div id="ourTeamPage" class="aboutPageParentPage">
+                    <h2>Our Team</h2>
 				<?php
 				woo_loop_before();
 
+				/**
+				 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+				 * @param string post_type - Type of post ie post, resources_post, our_team
+				 * @param string category_name  - Type of post ie resources-families-post
+				 * @param string $number  - Number of posts
+				 */
 
-
-//				if ( have_posts() ) { $count = 0;
-//					while ( have_posts() ) { the_post(); $count++;
-//						woo_get_template_part( 'content', 'page-template-business' ); // Get the page content template file, contextually.
-//					}
-//				}
+				if ( class_exists( 'SESCPosts' ) ) {
+					$sesc_posts->sesc_build_our_team_posts( 'our_team', null );
+//					$sesc_posts->sesc_build_our_team_posts( 'our_team', 'special-ed-cadre' );
+//					$sesc_posts->sesc_build_our_team_posts( 'our_team', 'consultants' );
+				}
 
 				woo_loop_after();
 				?>
+                </div>
             </section><!-- /#main -->
 			<?php woo_main_after(); ?>
 

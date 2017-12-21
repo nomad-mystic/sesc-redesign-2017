@@ -12,8 +12,13 @@ class SESC_custom_taxonomy {
 
 		add_action( 'init', [ $this, 'sesc_our_team_tax' ]);
 
-
 	}
+
+
+	/**
+	 * @author Keith Murphy - nomad - nomadmystics@gmail.com
+	 * @summary Build a custom taxonomy for our team custom post type
+	*/
 
 	public function sesc_our_team_tax() {
 
@@ -27,7 +32,7 @@ class SESC_custom_taxonomy {
 
 		register_taxonomy( $tax, $object_type, $args );
 		register_taxonomy_for_object_type( $tax, $object_type );
-		
+
 	}
 
 }
