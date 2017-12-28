@@ -15,7 +15,7 @@ class SESCPosts {
      * @param string post_type - Type of post ie post, resources_post
      * @param string category_name  - Type of post ie resources-families-post
      * @param string $number  - Number of posts
-     * @param string $menu_order  - The order posts will be desplay
+     * @param string $menu_order  - The order posts will be display
      * @return array $args
     */
 
@@ -29,8 +29,29 @@ class SESCPosts {
 			'posts_per_page'         => $number
 		];
 
+        return $args;
+    }
 
+    /**
+     * @author Keith Murphy - nomad - nomadmystics@gmail.com
+     * @summary Factory for WP_QUERY global
+     * @param string post_type - Type of post ie post, resources_post
+     * @param string category_name  - Type of post ie resources-families-post
+     * @param string $number  - Number of posts
+     * @return array $args
+    */
 
+    public function sesc_posts_tax_query_factory( $post_type = 'post', $number = '3', $tax) {
+//        var_dump($tax);
+        // WP_Query arguments
+		$args = [
+			'post_type'              => $post_type,
+//			'order'                  => 'ASC',
+//			'orderby'                => 'menu_order title',
+//			'posts_per_page'         => $number,
+			'tax_query' => $tax,
+		];
+//        var_dump($args);
         return $args;
     }
 
@@ -43,23 +64,23 @@ class SESCPosts {
      * @param string $number  - Number of posts
     */
 
-    public function sesc_build_our_team_posts( $post_type, $category_name, $number = '-1' ) {
+    public function sesc_build_our_team_posts( $post_type, $number = '-1', $tax ) {
 
-        $sesc_out_team_args = $this->sesc_posts_factory( $post_type, $category_name, $number );
+        $sesc_out_team_args = $this->sesc_posts_tax_query_factory( $post_type, $number, $tax );
         $sesc_our_team_query = new WP_Query( $sesc_out_team_args );
-//        var_dump($sesc_our_team_query);
+        var_dump($sesc_our_team_query);
 //        $post_meta = get_post_meta();
 
-	    echo '    <h4>WEA Staff</h4>';
+	    echo "    <h4>WEA Members</h4>";
 	    echo '    <div class="accordion">';
 
 	    // The Loop
 	    if ( $sesc_our_team_query->have_posts() ) {
-//	        var_dump('has posts');
 		    while ( $sesc_our_team_query->have_posts() ) {
 
 			    $sesc_our_team_query->the_post();
-                $id = get_the_ID();
+//			    var_dump($sesc_our_team_query->the_post());
+			    $id = get_the_ID();
                 $user_id = null;
                 $title = get_the_title($id);
 			    $byline = '';
@@ -71,38 +92,35 @@ class SESCPosts {
 
                 // Get email from meta for getting the user information
 
-                if ( $metadata['Email'] !== null ) {
+                if ( isset($metadata['Email']) && $metadata['Email'] !== null ) {
 	                $email = $metadata['Email'][0];
                 }
 
                 // Get byline meta
-                if ( $metadata['Byline'] !== null ) {
+                if ( isset($metadata['Byline']) && $metadata['Byline'] !== null ) {
 	                $byline = $metadata['Byline'][0];
                 }
 
                 // Get the users object so we can use the ID
                 $user = get_user_by(  'email', $email );
 
-                if ( $user !== null ) {
+                if (!empty($user) && $user !== null ) {
 	                $user_id = $user->ID;
                 }
 
                 // Get the user Avatar
                 // @todo If user doesn't have an Avatar use featured image
-//                $author_id = get_the_author_meta('ID', $user_id);
                 $avatar = get_avatar_url( $email );
 
                 // Get the users bio information
                 $user_description = get_the_author_meta('description', $user_id );
-
-			    echo '<pre>';
-			    var_dump($metadata);
-//			    var_dump($email);
-			    var_dump($user_id);
-//			    var_dump($user_description);
-			    var_dump($avatar);
-			    echo '</pre>';
-
+//			    echo '<pre>';
+//			    var_dump($metadata);
+////			    var_dump($email);
+//			    var_dump($user_id);
+////			    var_dump($user_description);
+//			    var_dump($avatar);
+//			    echo '</pre>';
 			    // If the category is other then null
 
 			    // Build the HTML here

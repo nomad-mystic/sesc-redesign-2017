@@ -109,7 +109,7 @@ class SESC_custom_posts {
 		$post_args = [
 			'public' => true,
 			'supports' => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats',],
-			'taxonomies' => ['our_team'],
+			'taxonomies' => ['our_team_category'],
 			'has_archive' => true,
 			'show_in_rest' => true,
 			'publicly_queryable' => true,
