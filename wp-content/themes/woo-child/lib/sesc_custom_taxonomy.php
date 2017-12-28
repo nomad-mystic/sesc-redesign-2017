@@ -25,7 +25,7 @@ class SESC_custom_taxonomy {
 		$tax = 'our_team_category';
 		$object_type = 'our_team';
 		$args = [
-			'label' => __( 'Categories' ),
+			'label' => __( 'Team Categories' ),
 			'rewrite' => [ 'slug' => 'our_team' ],
 			'hierarchical' => true,
 		];

@@ -50,27 +50,28 @@ $page_template = woo_get_page_template();
 
 				if ( class_exists( 'SESCPosts' ) ) {
 
-					$custom_terms = get_terms('our_team_category');
-//					var_dump($custom_terms);
-//
-//					foreach( $custom_terms as $term ) {
-//						wp_reset_query();
+					$custom_terms = get_terms( 'our_team_category' );
+					$reverse_terms_array = array_reverse( $custom_terms );
 
-						$tax = [
-							'taxonomy' => 'our_team_category',
-							'field' => 'slug',
-							'terms' => 'consultants',
-						];
+					if ( !empty($custom_terms) ) {
 
-						$sesc_posts->sesc_build_our_team_posts( 'our_team','-1', $tax );
+						foreach( $reverse_terms_array as $term ) {
+							wp_reset_query();
 
-//                    }
+							$tax = [
+								[
+									'taxonomy' => 'our_team_category',
+									'field' => 'slug',
+									'terms' => $term->slug,
+								]
+							];
 
+							$sesc_posts->sesc_build_our_team_posts( 'our_team','-1', $tax, $term );
 
+						}
 
+					}
 
-//					$sesc_posts->sesc_build_our_team_posts( 'our_team', 'special-ed-cadre' );
-//					$sesc_posts->sesc_build_our_team_posts( 'our_team', 'consultants' );
 				}
 
 				woo_loop_after();

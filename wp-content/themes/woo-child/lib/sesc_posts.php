@@ -20,6 +20,7 @@ class SESCPosts {
     */
 
     public function sesc_posts_factory( $post_type = 'post', $category_name = null, $number = '3', $menu_order = 'menu_order title') {
+
         // WP_Query arguments
 		$args = [
 			'post_type'              => [ $post_type ],
@@ -34,44 +35,44 @@ class SESCPosts {
 
     /**
      * @author Keith Murphy - nomad - nomadmystics@gmail.com
-     * @summary Factory for WP_QUERY global
-     * @param string post_type - Type of post ie post, resources_post
-     * @param string category_name  - Type of post ie resources-families-post
+     * @summary Factory for WP_QUERY global - Get custom tax
+     * @param array $tax - Custom tax_query array
+     * @param string $post_type - Type of post ie post, resources_post
      * @param string $number  - Number of posts
      * @return array $args
     */
 
-    public function sesc_posts_tax_query_factory( $post_type = 'post', $number = '3', $tax) {
-//        var_dump($tax);
+    static function sesc_posts_tax_query_factory($tax, $post_type = 'post', $number = '3') {
+
         // WP_Query arguments
 		$args = [
 			'post_type'              => $post_type,
-//			'order'                  => 'ASC',
-//			'orderby'                => 'menu_order title',
-//			'posts_per_page'         => $number,
+			'order'                  => 'ASC',
+			'orderby'                => 'name',
+			'posts_per_page'         => $number,
 			'tax_query' => $tax,
 		];
-//        var_dump($args);
+
         return $args;
+
     }
 
 
     /**
      * @author Keith Murphy - nomad - nomadmystics@gmail.com
      * @summary Factory for WP_QUERY global
-     * @param string post_type 'post' - Type of post ie post, resources_post
-     * @param string category_name 'home-post' - Type of post ie resources-families-post
+     * @param string $post_type 'post' - Type of post ie post, resources_post
      * @param string $number  - Number of posts
-    */
+     * @param array $tax - Custom tax_query array
+     * @param object $term - terms object
+     */
 
-    public function sesc_build_our_team_posts( $post_type, $number = '-1', $tax ) {
+    public function sesc_build_our_team_posts( $post_type, $number = '-1', $tax, $term) {
 
-        $sesc_out_team_args = $this->sesc_posts_tax_query_factory( $post_type, $number, $tax );
+        $sesc_out_team_args = SESCPosts::sesc_posts_tax_query_factory( $tax, $post_type, $number );
         $sesc_our_team_query = new WP_Query( $sesc_out_team_args );
-        var_dump($sesc_our_team_query);
-//        $post_meta = get_post_meta();
 
-	    echo "    <h4>WEA Members</h4>";
+	    echo "    <h4>{$term->name}</h4>";
 	    echo '    <div class="accordion">';
 
 	    // The Loop
@@ -79,7 +80,7 @@ class SESCPosts {
 		    while ( $sesc_our_team_query->have_posts() ) {
 
 			    $sesc_our_team_query->the_post();
-//			    var_dump($sesc_our_team_query->the_post());
+
 			    $id = get_the_ID();
                 $user_id = null;
                 $title = get_the_title($id);
@@ -91,7 +92,6 @@ class SESCPosts {
 			    $metadata = get_post_meta( $id );
 
                 // Get email from meta for getting the user information
-
                 if ( isset($metadata['Email']) && $metadata['Email'] !== null ) {
 	                $email = $metadata['Email'][0];
                 }
@@ -114,34 +114,34 @@ class SESCPosts {
 
                 // Get the users bio information
                 $user_description = get_the_author_meta('description', $user_id );
-//			    echo '<pre>';
-//			    var_dump($metadata);
-////			    var_dump($email);
-//			    var_dump($user_id);
-////			    var_dump($user_description);
-//			    var_dump($avatar);
-//			    echo '</pre>';
-			    // If the category is other then null
 
-			    // Build the HTML here
-                echo "       <h3>{$title} {$byline}</h3>";
-			    echo '        <div>';
-                echo "            <img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"cadre-molly\" width=\"250\" height=\"286\" />";
-                echo "            <p>{$user_description}</p>";
-                echo '            <div class="clearBoth"></div>';
-                echo '          </div>';
+                SESCPosts::sesc_build_our_team_html( $title, $byline, $avatar, $user_description);
 
 		    }
 		    wp_reset_postdata();
 
 	    } else {
-
-		    echo '<div class="entry-content">';
-		    echo '  <h1>Sorry! No Posts Found.</h1>';
-		    echo '</div>';
-
+		    SESCPosts::sesc_build_no_posts_found_html();
 	    }
 	    echo '    </div><!--end accordion-->';
+    }
+
+	/**
+	 * @param string $title - Title for the user | found as the post title
+	 * @param string $byline - Byline for the user | found as custom meta field
+	 * @param string $avatar - Profile picture of the user | found in profile
+	 * @param string $user_description - Bio of the user | found in the profile
+	 */
+    static function sesc_build_our_team_html ( $title, $byline, $avatar, $user_description) {
+
+	    // Build the HTML here
+	    echo "       <h3>{$title} {$byline}</h3>";
+	    echo '        <div>';
+	    echo "            <img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"cadre-molly\" width=\"250\" height=\"286\" />";
+	    echo "            <p>{$user_description}</p>";
+	    echo '            <div class="clearBoth"></div>';
+	    echo '          </div>';
+
     }
 
 
@@ -174,11 +174,7 @@ class SESCPosts {
             wp_reset_postdata();
 
 		} else {
-
-            echo '<div class="entry-content">';
-            echo '  <h1>Sorry! No Posts Found.</h1>';
-            echo '</div>';
-
+			SESCPosts::sesc_build_no_posts_found_html();
 		}
     }
 
@@ -225,12 +221,9 @@ class SESCPosts {
 
             			}
                         wp_reset_postdata();
+
             		} else {
-
-                        echo '<div class="entry-content">';
-                        echo '  <h1>Sorry! No Posts Found.</h1>';
-                        echo '</div>';
-
+	                    SESCPosts::sesc_build_no_posts_found_html();
             		}
                     ?>
                     </div><!-- end carousel-inner-->
@@ -286,11 +279,7 @@ class SESCPosts {
             wp_reset_postdata();
 
 		} else {
-
-            echo '<div class="entry-content">';
-            echo '  <h1>Sorry! No Posts Found.</h1>';
-            echo '</div>';
-
+			SESCPosts::sesc_build_no_posts_found_html();
 		}
 
         echo '</div>'; // row
@@ -477,14 +466,17 @@ class SESCPosts {
             wp_reset_postdata();
 
 		} else {
-
-            echo '<div class="entry-content">';
-            echo '  <h1>Sorry! No Posts Found.</h1>';
-            echo '</div>';
-
+            SESCPosts::sesc_build_no_posts_found_html();
 		}
 
     } // end sesc_build_stay_current_posts
 
+    static function sesc_build_no_posts_found_html () {
+
+	    echo '<div class="entry-content">';
+	    echo '  <h1>Sorry! No Posts Found.</h1>';
+	    echo '</div>';
+
+    }
 
 }// End class
