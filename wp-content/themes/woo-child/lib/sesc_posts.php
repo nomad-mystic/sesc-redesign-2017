@@ -139,6 +139,7 @@ class SESCPosts {
 	    echo '        <div>';
 	    echo "            <img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"cadre-molly\" width=\"250\" height=\"286\" />";
 	    echo "            <p>{$user_description}</p>";
+	                      the_content();
 	    echo '            <div class="clearBoth"></div>';
 	    echo '          </div>';
 

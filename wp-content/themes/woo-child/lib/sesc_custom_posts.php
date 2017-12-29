@@ -14,10 +14,12 @@ class SESC_custom_posts {
 	*/
 	public function init() {
 
-		add_action( 'init', [ $this, 'news_custom_post' ] );
-		add_action( 'init', [ $this, 'resources_custom_post' ] );
-		add_action( 'init', [ $this, 'sesc_our_team_custom_post' ] );
+		add_action( 'init', [$this, 'news_custom_post'] );
+		add_action( 'init', [$this, 'resources_custom_post'] );
+		add_action( 'init', [$this, 'sesc_our_team_custom_post'] );
 
+		// remove Yoast SEO
+		add_action('add_meta_boxes', [$this, 'sesc_remove_wp_seo_meta_box'], 100);
 	}
 
 
@@ -108,7 +110,7 @@ class SESC_custom_posts {
 
 		$post_args = [
 			'public' => true,
-			'supports' => ['title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats',],
+			'supports' => ['title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'post-formats',],
 			'taxonomies' => ['our_team_category'],
 			'has_archive' => true,
 			'show_in_rest' => true,
@@ -126,5 +128,13 @@ class SESC_custom_posts {
 
 		register_post_type('our_team', $post_args );
 	}
+
+	public function sesc_remove_wp_seo_meta_box () {
+		remove_meta_box('wpseo_meta', 'our_team', 'normal');
+		remove_meta_box('slugdiv', 'our_team', 'normal');
+		remove_meta_box('woothemes-settings', 'our_team', 'normal');
+		remove_meta_box('sharing_meta', 'our_team', 'normal');
+	}
+
 
 } // end class
