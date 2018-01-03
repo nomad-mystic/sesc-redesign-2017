@@ -87,6 +87,7 @@ class SESCPosts {
 			    $byline = '';
 			    $email = '';
 			    $avatar = '';
+			    $avatar_img = '';
 
                 // Need to get an email and byline from the post
 			    $metadata = get_post_meta( $id );
@@ -110,12 +111,21 @@ class SESCPosts {
 
                 // Get the user Avatar
                 // @todo If user doesn't have an Avatar use featured image
-                $avatar = get_avatar_url( $email );
+                if ( gettype(get_avatar($email)) === 'string' ) {
+
+	                $avatar = get_avatar_url( $email );
+	                $avatar_img = "<img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"Profile picture for {$user->display_name}\" width=\"250\" height=\"286\" />";
+
+                } else {
+
+	                $avatar_img = '<div></div>';
+
+                }
 
                 // Get the users bio information
                 $user_description = get_the_author_meta('description', $user_id );
 
-                SESCPosts::sesc_build_our_team_html( $title, $byline, $avatar, $user_description);
+                SESCPosts::sesc_build_our_team_html( $title, $byline, $avatar_img, $user_description);
 
 		    }
 		    wp_reset_postdata();
@@ -129,15 +139,15 @@ class SESCPosts {
 	/**
 	 * @param string $title - Title for the user | found as the post title
 	 * @param string $byline - Byline for the user | found as custom meta field
-	 * @param string $avatar - Profile picture of the user | found in profile
+	 * @param string $avatar_img - Profile picture of the user | found in profile
 	 * @param string $user_description - Bio of the user | found in the profile
 	 */
-    static function sesc_build_our_team_html ( $title, $byline, $avatar, $user_description) {
+    static function sesc_build_our_team_html ( $title, $byline, $avatar_img, $user_description) {
 
 	    // Build the HTML here
 	    echo "       <h3>{$title} {$byline}</h3>";
 	    echo '        <div>';
-	    echo "            <img class=\"size-full alignleft\" src=\"{$avatar}\" alt=\"cadre-molly\" width=\"250\" height=\"286\" />";
+	    echo "            {$avatar_img}";
 	    echo "            <p>{$user_description}</p>";
 	                      the_content();
 	    echo '            <div class="clearBoth"></div>';
