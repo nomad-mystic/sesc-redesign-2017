@@ -94,12 +94,7 @@ class SESCPosts {
 
                 // Get email from meta for getting the user information
                 if ( isset($metadata['Email']) && $metadata['Email'] !== null ) {
-	                $email = $metadata['Email'][0];
-                }
-
-                // Get byline meta
-                if ( isset($metadata['Byline']) && $metadata['Byline'] !== null ) {
-	                $byline = $metadata['Byline'][0];
+	                $email = trim($metadata['Email'][0]);
                 }
 
                 // Get the users object so we can use the ID
@@ -125,7 +120,11 @@ class SESCPosts {
                 // Get the users bio information
                 $user_description = get_the_author_meta('description', $user_id );
 
-                SESCPosts::sesc_build_our_team_html( $title, $byline, $avatar_img, $user_description);
+                if ( empty($user_description) ) {
+	                $user_description = 'Waiting for bio';
+                }
+
+                SESCPosts::sesc_build_our_team_html( $title, $avatar_img, $user_description);
 
 		    }
 		    wp_reset_postdata();
@@ -138,14 +137,13 @@ class SESCPosts {
 
 	/**
 	 * @param string $title - Title for the user | found as the post title
-	 * @param string $byline - Byline for the user | found as custom meta field
 	 * @param string $avatar_img - Profile picture of the user | found in profile
 	 * @param string $user_description - Bio of the user | found in the profile
 	 */
-    static function sesc_build_our_team_html ( $title, $byline, $avatar_img, $user_description) {
+    static function sesc_build_our_team_html ( $title, $avatar_img, $user_description) {
 
 	    // Build the HTML here
-	    echo "       <h3>{$title} {$byline}</h3>";
+	    echo "       <h3>{$title}</h3>";
 	    echo '        <div>';
 	    echo "            {$avatar_img}";
 	    echo "            <p>{$user_description}</p>";

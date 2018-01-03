@@ -18,8 +18,10 @@ class SESC_custom_posts {
 		add_action( 'init', [$this, 'resources_custom_post'] );
 		add_action( 'init', [$this, 'sesc_our_team_custom_post'] );
 
-		// remove Yoast SEO
-		add_action('add_meta_boxes', [$this, 'sesc_remove_wp_seo_meta_box'], 100);
+		// remove metaboxes
+		add_action('add_meta_boxes', [$this, 'sesc_remove_wp_metabox'], 100);
+
+		add_filter( 'enter_title_here', [$this, 'sesc_change_our_team_title_text'] );
 	}
 
 
@@ -129,12 +131,21 @@ class SESC_custom_posts {
 		register_post_type('our_team', $post_args );
 	}
 
-	public function sesc_remove_wp_seo_meta_box () {
+	public function sesc_remove_wp_metabox () {
 		remove_meta_box('wpseo_meta', 'our_team', 'normal');
 		remove_meta_box('slugdiv', 'our_team', 'normal');
 		remove_meta_box('woothemes-settings', 'our_team', 'normal');
 		remove_meta_box('sharing_meta', 'our_team', 'normal');
 	}
 
+	public function sesc_change_our_team_title_text( $title ) {
+		$screen = get_current_screen();
+
+		if  ( 'our_team' === $screen->post_type ) {
+			$title = 'Enter your name and byline here (example: First Last, Special Ed Teacher)';
+		}
+
+		return $title;
+	}
 
 } // end class
