@@ -29,9 +29,9 @@ if ((isset( $woo_options['woo_slider_biz']) && 'true' == $woo_options['woo_slide
 
                <?php if ((isset($woo_options['woo_slider_biz']) && 'true' == $woo_options['woo_slider_biz']) && (isset($woo_options['woo_slider_biz_full']) && 'false' == $woo_options['woo_slider_biz_full'])) {$saved = $wp_query; woo_slider_biz(); $wp_query = $saved;} ?>
 
-               <section id="main"  class="resourcePostPage traumatic-brain-injury-post-page">
-                    <h2><?php echo get_the_title($ID); ?></h2>
-                    &nbsp;
+               <section id="main"  class="resourcePostPage">
+                    <?php the_title( '<h2>', '</h2>', true); ?>
+                    <h2><?php echo esc_html( get_the_title() ) ?></h2>
                     <?php
                          if (have_posts()) {
                               $count = 0;
